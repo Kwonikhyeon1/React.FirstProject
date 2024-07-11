@@ -1,0 +1,128 @@
+/* Common */
+body {
+    background-color: #000;  
+}
+a {
+    text-decoration: none;
+    color: #dadada;
+    transition: color 0.3s; /*바뀌는 속도*/
+}
+
+a:hover {
+    color: #ffffff;
+}
+
+li {
+    list-style: none;
+}
+
+/* HEADER */
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 9; /*내려도 보일수 있도록*/
+    background-color: rgba(0, 0, 0, .2);    /*헤더 백그라운드 컬러 부분입니다 수정사항입니다*/
+    color: #dadada;
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1);    /*헤더 백그라운드 그림자 부분입니다 수정권장사항입니다*/
+}
+
+.header h2 {
+    text-align: center;
+    font-size: 2em;
+    margin: 0;
+}
+
+.header .search_bar {
+    position: absolute;
+    top: 50%;
+    right: 70px;
+    transform: translateY(-50%); /*부모요소로 부터 수직 이동 -50%함*/
+    display: flex;
+    align-items: center;
+}
+
+.header .search_bar .search {
+    border: 1px solid #dadada;
+    border-radius: 20px;
+    padding: 5px 15px;
+    margin-right: 10px;
+}
+.header .search_bar .search_icon {
+    cursor: pointer;
+}
+.header .search_bar .search_icon:hover {
+    outline: none;
+    cursor: pointer;
+}
+/*일부 수정사항입니다 화면 축소시 타이틀덮임 문제 있습니다*/
+.header .sign_bar { 
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+}
+
+.header .sign_bar .material-symbols-outlined {
+    cursor: pointer;
+    position: relative;
+    font-size: 1.5em;
+}
+/*리팩토리시 결정사항입니다*/
+.header .sign_bar .material-symbols-outlined .inner { /*로그인바 입니다*/
+    display: none; /*숨김처리 히든으로 했습니다*/
+    position: absolute;
+    top: 100%; /* 로그인바가 아이콘 기준으로 부터 위치선택입니다 */
+    right: 0;
+    background-color: rgba(0, 0, 0, .5); 
+    color: #dadada;
+    border: 1px solid #dadada;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    border-radius: 8px;
+}
+
+.header .sign_bar .material-symbols-outlined:hover .inner {
+    display: block;
+}
+
+/* MENUBAR */
+.menubar {
+    width: 100%;
+    background-color: rgba(0, 0, 0, .2);
+    color: #dadada;
+    padding: 10px 0;
+    margin-top: 60px;
+    position: relative; /*header 밑으로 위치 시키기 위해 사용했습니다*/ 
+    z-index: 9;
+}
+
+.menubar ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+}
+
+.menubar li {
+    margin: 5px 15px;
+    padding: 10px 20px;
+    background-color: rgba(255, 255, 255, .1); 
+    border-radius: 30px;
+}
+
+.menubar li a {
+    color: #dadada;
+    font-size: 1em;
+}
+
+.menubar li:hover {
+    background-color: rgba(255, 255, 255, .2); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+}
+
+.menubar li:hover a {
+    color: #ffffff;
+}

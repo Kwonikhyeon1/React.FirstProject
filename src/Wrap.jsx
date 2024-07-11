@@ -1,11 +1,14 @@
 import React from "react";
-import Home from './Homepage/Home'
+import Home from './Homepage/Home';
+
 
 const Wrap = () => {
-    return(
+    return (
         <>
             <Home />
         </>
     );
 }
+
 export default Wrap;
+
