@@ -1,0 +1,140 @@
+/* COMMON CSS */
+
+a {
+    text-decoration: none;
+    color: #242424;
+    outline: "none";
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+li {
+    list-style: none;
+}
+
+/* /////// SUB PAGE CSS //////////// */
+
+#sub_wrap {
+    width: 939px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 10px;
+}
+
+#sub_wrap h2 {
+    text-align: center;
+    margin-bottom: -20px;
+    color: #242424;
+}
+
+#sub_wrap h4 {
+    font-weight: 100;
+    color: #4e4e4e;
+}
+
+#sub_wrap .sub_img {
+    margin: 20px 0px;
+
+}
+
+#sub_wrap .text_wrap {
+    width: 939px;
+    margin: 0 auto;
+    text-align: left;
+    color: #242424;
+}
+
+#sub_wrap .text_wrap p {
+    line-height: 26px;
+    font-size: 1.2em;
+}
+
+
+#sub_wrap .text_wrap h3 {
+    border-bottom: 1px solid #242424;
+    padding-bottom: 10px;
+}
+
+
+#sub_wrap .google_map {
+    margin: 10px;
+    padding: 5px;
+    width: 900px ; height: 300px;
+    background-color: beige;
+    text-align: center;
+}
+
+#sub_wrap .input_review {
+    margin: 10px;
+    padding: 5px;
+    width: 900px ; height: 300px;
+    background-color: rgb(250, 250, 190);
+    text-align: center;
+}
+
+#sub_wrap .review_list {
+    margin: 10px;
+    padding: 5px;
+    width: 900px ; height: 700px;
+    background-color: rgb(175, 252, 255);
+    text-align: center;
+}
+
+/* ///////MEMBERS CSS//////// */
+
+.sign-up,
+.sign-in {
+    width: 300px;
+    height: 300px;
+    margin: 0 auto ;
+    padding: 10px;
+    background-color: #f0efef;
+    text-align: center;
+    position: relative;
+}
+
+
+.sign-up h3,
+.sign-in h3 {
+    text-align: center;
+}
+
+.sign-up input.txt-basic, 
+.sign-in input.txt-basic {
+    width: 200px;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid rgba(100, 100, 100, .4);
+    outline: none;
+    border-radius: 5px;
+}
+
+.sign-up input.btn-basic,
+.sign-in input.btn-basic  {
+    width: 220px;
+    padding: 10px;
+    margin: 15px 5px 5px 5px;
+    border: 1px solid rgba(100, 100, 100, .4);
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: rgb(171, 209, 156);
+} 
+
+
+.sign-in input.btn-small {
+    width: 80px;
+    padding: 10px;
+    margin: 5px;
+    position: absolute;
+    right: 50px;
+    border: 1px solid rgba(100, 100, 100, .4);
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: rgb(219, 219, 219);
+
+}
+
