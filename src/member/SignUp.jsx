@@ -1,8 +1,9 @@
 import React, { useState } from "react"; 
 import {getTravelInfoMemberDB , setTravelInfoMemberDB , getDateTime,
-        getTravelCommentDB , setTravelCommentDB
+        getTravelCommentDB , setTravelCommentDB, 
  } from './MemberUtils'
  import { useNavigate } from "react-router-dom";
+ import '../sub/style.css'
 
 
 
@@ -45,14 +46,27 @@ const SignUp = () => {
         // MEMBER DB INSERT
 
         
-        let travelInfoMembers = JSON.parse(getTravelInfoMemberDB());
-        if (travelInfoMembers[uId] ){
-            alert('사용중인 아이디 입니다.')
-            return;
-        } 
+        if (getTravelInfoMemberDB() !== null){
+
+            let travelInfoMembers = JSON.parse(getTravelInfoMemberDB());
+            if (travelInfoMembers[uId] ){
+                alert('사용중인 아이디 입니다.')
+                return;
+            } 
+
+        }
+
+
         
         if (uPw.match( /(?=.*\d)(?=.*[a-z]).{8,}/) === null ){
-            alert('숫자&영어 소문자포함된 8자리 이상')
+            alert('비밀번호는 8자 이상의 영어소문자 + 숫자로 입력해주세요')
+            return;
+
+        } 
+
+
+        if (uMail.match(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/) === null ){
+            alert('올바른 이메일 주소를 입력해주세요')
             return;
 
         }
@@ -70,6 +84,7 @@ const SignUp = () => {
             }
 
             setTravelInfoMemberDB(newMemObj);
+
 
         } else {
 

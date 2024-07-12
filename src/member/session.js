@@ -1,5 +1,4 @@
 let loginedSessionID = '';
-let adminLoginedSessionID = '';
 
 // USER SESSION
 export const getLoginedSessionID = () => {

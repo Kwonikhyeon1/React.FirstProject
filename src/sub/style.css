@@ -1,19 +1,5 @@
 /* COMMON CSS */
 
-a {
-    text-decoration: none;
-    color: #242424;
-    outline: "none";
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-li {
-    list-style: none;
-}
-
 /* /////// SUB PAGE CSS //////////// */
 
 #sub_wrap {
@@ -85,10 +71,11 @@ li {
 /* ///////MEMBERS CSS//////// */
 
 .sign-up,
-.sign-in {
+.sign-in,
+.modify {
     width: 300px;
     height: 300px;
-    margin: 0 auto ;
+    margin: 100px auto ;
     padding: 10px;
     background-color: #f0efef;
     text-align: center;
@@ -97,12 +84,14 @@ li {
 
 
 .sign-up h3,
-.sign-in h3 {
+.sign-in h3,
+.modify h3 {
     text-align: center;
 }
 
 .sign-up input.txt-basic, 
-.sign-in input.txt-basic {
+.sign-in input.txt-basic,
+.modify input.txt-basic {
     width: 200px;
     padding: 10px;
     margin: 5px;
@@ -112,7 +101,8 @@ li {
 }
 
 .sign-up input.btn-basic,
-.sign-in input.btn-basic  {
+.sign-in input.btn-basic,
+.modify input.btn-basic  {
     width: 220px;
     padding: 10px;
     margin: 15px 5px 5px 5px;
@@ -124,7 +114,8 @@ li {
 } 
 
 
-.sign-in input.btn-small {
+.sign-in input.btn-small,
+.modify input.btn-small {
     width: 80px;
     padding: 10px;
     margin: 5px;
@@ -138,3 +129,8 @@ li {
 
 }
 
+
+.home_wrap {
+
+    min-height: 450px;
+}

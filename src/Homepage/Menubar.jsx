@@ -1,14 +1,25 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate , Outlet } from "react-router-dom";
 import "../css/Menubar.css"; // Import CSS file properly
 import { findSpot } from'../main/travelDB.js'                   // main page 
+import {setLoginedSessionID} from '../member/session.js'
 
-const Menubar = () => {
+
+
+
+const Menubar = (props) => {
     // hook
     const navigate = useNavigate()                               // main page
     
-
     const [signMenuBar, setSignMenuBar] = useState(false);
+
+    useEffect(() => {
+        console.log('[Menubar] useEffect()');
+
+        console.log('[Menubar] props.isSignIned ----> ', props.isSignIned);     // false
+
+    }, []);
+
 
     // handler
     const toggleClickHandler = () => {
@@ -30,6 +41,13 @@ const Menubar = () => {
         navigate(`/main/서치/${searcResult}`);
     }
 
+    const signOutClickHandler = () => {
+        console.log('[Menubar] signOutClickHandler()');
+
+        setLoginedSessionID();
+        props.setIsSignIned(false);
+        
+    }
 
     return (
         <>
@@ -46,10 +64,21 @@ const Menubar = () => {
                     <div className="inner">
                         {signMenuBar && (
                             <ul>
-                                <li><Link to="/">회원가입</Link></li>
-                                <li><Link to="/">로그인</Link></li>
-                                <li><Link to="/">로그아웃</Link></li>
-                                <li><Link to="/">내정보수정</Link></li>
+                                {
+                                    props.isSignIned?
+                                    <>
+                                     <li><Link to="/" onClick={signOutClickHandler} >로그아웃</Link></li>
+                                     <li><Link to="/modify">회원정보수정</Link></li>
+                                    </>
+                                    :
+                                    <>
+                                     <li><Link to="/signup">회원가입</Link></li>
+                                     <li><Link isSignIned={props.isSignIned} setIsSignIned={props.setIsSignIned} to="/signin">로그인</Link></li>
+                                     <Outlet />
+                                    </>
+                                }
+                               
+                              
                             </ul>
                         )}
                     </div>

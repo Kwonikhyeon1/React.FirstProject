@@ -1,9 +1,11 @@
-import React, { useState } from "react"; 
+import React, { useState , useEffect } from "react"; 
 import { useNavigate } from "react-router-dom";
 import { getMyInfo } from "./MemberUtils";
 import { setLoginedSessionID } from "./session";
+import '../sub/style.css'
 
-const SignIn = () => {
+
+const SignIn = (props) => {
 
     const [uId, setUId] = useState('');
     const [uPw, setUPw] = useState('');
@@ -11,8 +13,17 @@ const SignIn = () => {
     const navigate = useNavigate();
 
 
+
+    // useEffect(() => {
+    //     console.log('[Menubar] useEffect()');
+
+    //     props.setIsSignIned(props.isSignIned);
+    //     alert(props.isSignIned)
+
+    // });
+
     const uIdChangeHandler =(e) => {
-        console.log('[signIn] uIdClickHandler()');
+        console.log('[signIn] uIdChangeHandler()');
         
         setUId(e.target.value);
     
@@ -20,7 +31,7 @@ const SignIn = () => {
 
 
     const uPwChangeHandler =(e) => {
-        console.log('[signIn] uPwClickHandler()');
+        console.log('[signIn] uPwChangeHandler()');
     
         setUPw(e.target.value);
     }
@@ -30,32 +41,33 @@ const SignIn = () => {
     const signUpBtnClickHandler =() => {
         console.log('[signIn] signUpBtnClickHandler Clicked!!');
 
-        navigate('/sign-up');
+        navigate('/signup');
     }
 
 
     const signInBtnClickHandler =() => {
         console.log('[signIn] signInBtnClickHandler Clicked!!');
 
-       let myInfo = getMyInfo(uId);
+        let myInfo = getMyInfo(uId);
 
-       if (myInfo !== undefined && myInfo.uPw === uPw ) {
+        if (myInfo !== undefined && myInfo.uPw === uPw ) {
 
-        alert('로그인 성공!')
+            alert('로그인에 성공했습니다!');                // UI 알람
 
-        setLoginedSessionID(uId);
-        
-        // setIsSignIned(true);
-        navigate('/');
+            setLoginedSessionID(uId);                     // set session user ID 
+
+            props.setIsSignIned(true);                    // set login status                     
+
+            navigate('/main/서울/all');
 
        } else {
-        alert('로그인 실패!')
+            alert('사용자 정보를 확인해주세요!')
 
-        setLoginedSessionID('');
-        //setIsSignIned(false);
-        
-        setUId('');
-        setUPw('');
+            setLoginedSessionID('');
+            props.setIsSignIned(false);
+            
+            setUId('');
+            setUPw('');
 
        }
 
@@ -66,8 +78,8 @@ const SignIn = () => {
         
         <div className="sign-in">
             <h3> 로그인 </h3>
-            <input type="text" className="txt-basic" onChange={uIdChangeHandler} placeholder="아이디를 입력하세요" /><br />
-            <input type="password" className="txt-basic" onChange={uPwChangeHandler} placeholder="비밀번호를 입력하세요" /><br />
+            <input type="text" value={uId} className="txt-basic" onChange={uIdChangeHandler} placeholder="아이디를 입력하세요" /><br />
+            <input type="password" value={uPw} className="txt-basic" onChange={uPwChangeHandler} placeholder="비밀번호를 입력하세요" /><br />
             <input type="button" className="btn-basic" onClick={signInBtnClickHandler} value="로그인" /> <br />
             <input type="button" className="btn-small" onClick={signUpBtnClickHandler} value="회원가입" />
        </div>

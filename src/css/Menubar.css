@@ -10,10 +10,17 @@ a {
 
 a:hover {
     color: #ffffff;
+    font-weight: bold;
 }
 
 li {
     list-style: none;
+}
+
+/*메뉴바 커서 수정*/
+li:hover {   
+    cursor: pointer;
+    text-decoration: none;
 }
 
 /* HEADER */

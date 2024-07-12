@@ -1,3 +1,5 @@
+
+
 ///변수///
 
 export const MEMBER_DB_IN_LOCALSTORAGE = 'travelInfoMemberDB';
@@ -47,6 +49,12 @@ export const setMyInfo = (uId, myInfo) => {
 }
 
 
+export const getAllMemberInfo = () => {
+    console.log('[utils] getAllMemberInfo()');
+
+    return JSON.parse(getTravelInfoMemberDB());
+
+}
 
 
 //comment //
@@ -91,3 +99,10 @@ export const getDateTime = () => {
     return `${fullYear}/${month}/${date} ${hours}:${minutes}:${seconds}`;
 
 }
+
+
+//// google map util ///
+
+
+
+// ...생략
