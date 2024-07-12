@@ -1,0 +1,72 @@
+/* 전체 컨테이너 */
+#write_form, #Comment_list {
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 입력 폼 */
+#write_form .inner {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#write_form .txt {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+#write_form .comment_write {
+    flex: 1;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+#write_form .comment_write:focus {
+    border-color: #007bff;
+}
+
+#write_form button {
+    padding: 12px 24px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#write_form button:hover {
+    background-color: #0056b3;
+}
+
+/* 댓글 목록 */
+#Comment_list .inner {
+    display: grid;
+    gap: 20px;
+}
+
+.comment_item {
+    padding: 16px;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.comment_item p {
+    margin: 8px 0;
+    font-size: 0.9rem;
+    color: #666;
+}
