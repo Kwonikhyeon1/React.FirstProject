@@ -1,0 +1,74 @@
+* {
+    padding: 0;
+    margin: 0 auto;
+}
+
+#Main {
+    width: 1000px;
+    top: 10px;
+    margin: 0 auto;
+}
+
+#Main ul.bot-menu-one,
+#Main ul.bot-menu-two  {
+    background-color: #f5f5f5;
+    overflow: hidden;
+    padding: 10px 50px;
+
+
+}
+
+#Main ul.bot-menu-one li,
+#Main ul.bot-menu-two li {
+    list-style: none;
+    margin: 10px;
+    float: left;
+border-radius: 7px;
+background-color: #fff;
+box-shadow: 0 0 5px #aaa;
+}
+
+#Main ul.bot-menu-one img,
+#Main ul.bot-menu-two img {
+    max-width: 200px;
+    min-width: 200px;
+    max-height: 135px;
+    min-height: 135px;
+    border-bottom: 1px solid #aaa;
+    border-radius: 7px 7px 0 0;
+}
+
+#Main div.spot-title {
+    margin: 5px 0;
+    padding: 0 10px;
+    font-weight: bold;
+    width: 170px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+
+#Main div.spot-address {
+    margin: 5px 0;
+    padding: 0 10px;
+    width: 170px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+#Main div.spot-rank {
+    margin: 5px 0;
+    padding: 0 10px 5px;
+    width: 170px;
+    white-space: nowrap;
+    overflow: hidden;
+    color: rgb(241, 182, 108);
+}
+
+#Main ul.bot-menu-one li:hover,
+#Main ul.bot-menu-two li:hover {
+    box-shadow: 0 0 5px #000;
+    cursor: pointer;
+}
+
+
