@@ -1,28 +1,36 @@
-import React from "react";
-import { Link } from "react-router-dom"
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "../css/Menubar.css"; // Import CSS file properly
 
 const Menubar = () => {
+    const [signMenuBar, setSignMenuBar] = useState(false);
+
+    const toggleClickHandler = () => {
+        setSignMenuBar(signMenuBar => !signMenuBar);
+    }
+    
     return (
         <>
             <div className="header">
                 <h2>어디로 떠나고 싶으세요?</h2>
 
                 <div className="search_bar">
-                    <input type="text" className="search" id="searchInput"/>
+                    <input type="text" className="search" id="searchInput" />
                     <a href="#none" className="material-symbols-outlined search_icon" onClick={() => document.getElementById('searchInput').focus()}>search</a>
                 </div>
+
                 <div className="sign_bar">
-                    <span className="material-symbols-outlined">account_circle
-                        <div className="inner">
+                    <span className="material-symbols-outlined" onClick={toggleClickHandler}>account_circle</span>
+                    <div className="inner">
+                        {signMenuBar && (
                             <ul>
                                 <li><Link to="/">회원가입</Link></li>
                                 <li><Link to="/">로그인</Link></li>
                                 <li><Link to="/">로그아웃</Link></li>
                                 <li><Link to="/">내정보수정</Link></li>
                             </ul>
-                        </div>
-                    </span>
+                        )}
+                    </div>
                 </div>
             </div>
 
