@@ -131,8 +131,8 @@ let travelDBJson =  {
                 },
 
                     "한밭수목원":{
-                        "title": "한밭수목원",
-                        "area" : "대전",
+                    "title": "한밭수목원",
+                    "area" : "대전",
                     "img_src":  "https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=3f1b94ff-5a5d-4ffe-8275-9d3a066a03fe",
                     "descript": "대전의 최대 도심지 둔산에 자리하고 있으면서 우성이산, 갑천과 유등천, 정부대전청사 녹지 축에 연계된 전국 최대의 도심 속 수목원이다. 식물 종(種) 뿐만 아니라 생물 서식공간으로서의 생태환경과 경관이 우수하며, 예술의 전당·미술관·연정국악원 등 문화예술이 어우러진 시민의 문화·휴식공간으로 사랑받고 있다.",
                     "address":  "대전광역시 서구 둔산대로 169",
@@ -140,8 +140,8 @@ let travelDBJson =  {
                 },                
                 
                     "대전엑스포과학공원":{
-                        "title": "대전엑스포과학공원",
-                        "area" : "대전",
+                    "title": "대전엑스포과학공원",
+                    "area" : "대전",
                     "img_src":  "https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=ce6563eb-396a-4a6a-953a-d80ea30c8597",
                     "descript": "우리나라 최초의 국제박람회기구(BIE)공인 전문 엑스포로 개최되었던'93년 대전세계박람회'를 기념하기 위해 그 시설과 부지를 국민 과학교육의 장으로 활용하기 위하여 조성된 과학공원이다.",
                     "address":  "대전광역시 유성구 대덕대로 480",
@@ -150,7 +150,7 @@ let travelDBJson =  {
                 
                 "식장산 문화공원(해돋이전망대)":{
                     "title": "식장산 문화공원(해돋이전망대)",
-                        "area" : "대전",
+                    "area" : "대전",
                     "img_src":  "https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=684cf76e-e570-4a9e-962e-f5dfa2fa45ce",
                     "descript": "식장산(623.6m)은 대전광역시 동구와 옥천군 군북면, 군서면 등 세 지역에 걸쳐있는 산이다. 대전광역시의 최고봉으로 충남의 최고봉 서대산(904m), 옥천의 최고봉 대성산(705m) 등 인접지역의 명산들과 어깨를 견주며 동구의 남동부를 수놓고 있는 산이다.",
                     "address":  "대전광역시 동구 세천동 산43-5",
@@ -158,7 +158,7 @@ let travelDBJson =  {
                 },                
                 "만인산 자연휴양림":{
                     "title": "만인산 자연휴양림",
-                        "area" : "대전",
+                    "area" : "대전",
                     "img_src":  "https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=e4e71c79-a609-4af8-b2c8-fad3f8abc6d6",
                     "descript": "조선시대에는 산세가 수려하여 태조대왕과 왕자의 태를 모시기도 했던 만인산, 이곳에 만인산 자연휴양림이 위치해 있다. 만인산자연휴양림은 1997년에 개장하여 활엽수가 울창한 산림을 이루고 있는 도시근교 휴양림으로 도시민들의 쾌적한 휴식처 역할을 한다.",
                     "address":  "대전광역시 동구 산내로 106",
@@ -938,8 +938,8 @@ let travelDBJson =  {
                     "address":  "전라남도 목포시 해양대학로 240",
                     "geo_loc":  "34.7995504,126.3700042"
                 },
-                "순천만습지 (구, 순천만자연생태공원)":{
-                    "title": "순천만습지 (구, 순천만자연생태공원)",
+                "순천만습지 (구 순천만자연생태공원)":{
+                    "title": "순천만습지 (구 순천만자연생태공원)",
                     "area" : "전남",
                     "img_src":  "https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=08fe125b-cd26-4bc5-a20b-559bdaa987f3",
                     "descript": "순천만은 우리나라 남해안 중서부에 위치한 만으로서, 전라남도 순천시와 고흥군, 여수시로 둘러싸여 있다. 길게 뻗은 고흥반도와 여수반도로 에워싸인 큰 만을 순천만이라 하기도 하며, 순천시 인안동, 대대동, 해룡면 선학리와 상내리 등으로 둘러싸인 북쪽 해수면만을 순천만이라 일컫기도 한다.",
@@ -1076,8 +1076,8 @@ let travelDBJson =  {
                     "address":  "세종특별자치시 금남면 산림박물관길 110",
                     "geo_loc":  "36.4383246,127.2430697"
                 },
-                "금강자연휴양림(금강수목원,산림박물관)":{
-                    "title": "금강자연휴양림(금강수목원,산림박물관)",
+                "금강자연휴양림(금강수목원. 산림박물관)":{
+                    "title": "금강자연휴양림(금강수목원. 산림박물관)",
                     "area" : "세종",
                     "img_src":  "https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=17dc9c8c-cd61-4228-b15e-59222e9e5c9f",
                     "descript": "공주시에서 대전방향으로 강변을 따라오다가 청벽대교를 건너기 전 오른쪽으로는 유유히 흐르는 금강을 바라보면서 잠시 달리다 보면 오른쪽에 붉은 아치 모양의 불티교가 보인다. 이 불티교를 건너면 이렇게 넓은 자연휴양림이 있을까 싶을 만큼 규모도 크고 잘 정돈된 금강자연휴양림이 모습을 드러낸다.",
@@ -1146,13 +1146,18 @@ export const getAllAres = () => {
 }
 
 
-export const getAllSpotArea = (area='서울') => {
+export const getAllSpotArea = (area='서울', spots='All') => {
     console.log('getAllSpotArea()');
 
     let allDB = getAllDBJobj();
     let keys = Object.keys(allDB);
 
     let allSpot = [];
+
+    //console.log('    >>>>>>   ', spots.split(','))
+
+    console.log('[getAllSpotArea] --> ', spots.split(','));
+    if (area === '서치')  return spots.split(',');
  
     // console.log('---> ', allArea)
     for (let i = 0; i < keys.length; i++) {
@@ -1169,8 +1174,8 @@ export const findSpot = (spot) => {
     let allDB = getAllDBJobj();
     console.log(allDB);
     let keys = Object.keys(allDB);
-    console.log(keys);
-    console.log(spot)
+    console.log('findSopt() -- >',keys);
+    console.log('findSopt() -- >',spot)
     findSpotArry = keys.filter( e => allDB[e].title.indexOf(spot) > -1)
 
     return findSpotArry

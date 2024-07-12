@@ -23,8 +23,8 @@ const Main = () => {
 
         setAllDB(getAllDBJobj());      // Object
         setAllArea(getAllAres());      // Array
-        setAllSpot(getAllSpotArea(param.area));  // Array
-    console.log(param.area, param.result);
+        setAllSpot(getAllSpotArea(param.area, param.result));  // Array
+    console.log(' -- parameter --> ',param.area, param.result);
             
     },[])
 
@@ -40,10 +40,6 @@ const test = (e, title) => {
 
 }
 
-const mouseover = () => {
-    console.log('mouseover()');
-
-}
 
     return(
 
@@ -69,7 +65,7 @@ const mouseover = () => {
                                         null
                                     }
                                     </div>
-                                    <div className='spot-title' onMouseOver={mouseover} >
+                                    <div className='spot-title' >
                                     {
                                         
                                         allSpot !== undefined

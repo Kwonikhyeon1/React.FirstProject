@@ -21,7 +21,7 @@ const Main = () => {
     setAllSpot(getAllSpotArea());  // Array
    
         
-},[])
+},[allSpot])
 
 
 const test = (e, title) => {
