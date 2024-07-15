@@ -6,6 +6,8 @@ import { GoogleMap, useJsApiLoader , MarkerF } from "@react-google-maps/api"; //
 const containerStyle = {
   width: "98%",
   height: "400px",
+  border: "1px solid #dadada",
+  borderRadius: "10px"
 }; // 지도 크기를 설정해준다.
 
 

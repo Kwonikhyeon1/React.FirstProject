@@ -45,7 +45,7 @@ const SubPage = (props) =>{
                     <h3>상세정보</h3>
                     <p>{props.allDB[param.spotname].descript}</p>
                 </div>
-                <GoogleMap lat={lat} lng={lng}/>
+                <GoogleMap className="map" lat={lat} lng={lng}/>
                 <br />
                 <CommentWrite spot={param.spotname}/>
                 <br />

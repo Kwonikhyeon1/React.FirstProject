@@ -17,6 +17,6 @@
   .bg_img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* 이미지를 컨테이너에 맞게 조정 */
+    object-fit: none; /* 이미지를 컨테이너에 맞게 조정 */
   }
   
