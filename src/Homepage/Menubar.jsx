@@ -26,6 +26,10 @@ const Menubar = (props) => {
         setSignMenuBar(signMenuBar => !signMenuBar);
     }
 
+    const toggleLeaveHandler = () => {
+         setSignMenuBar(false);
+     }
+
     const goMain = (e, area) => {                               // main page
         console.log('[Menubar] goMain()');
 
@@ -59,8 +63,8 @@ const Menubar = (props) => {
                     <a href="#none" className="material-symbols-outlined search_icon" onClick={(e) => searchSpot(e, document.getElementById('searchInput').value)}>search</a>   
                 </div>
 
-                <div className="sign_bar">
-                    <span className="material-symbols-outlined" onClick={toggleClickHandler}>account_circle</span>
+                <div className="sign_bar"  onClick={toggleClickHandler} onMouseLeave={toggleLeaveHandler}>
+                    <span className="material-symbols-outlined">account_circle</span>
                     <div className="inner">
                         {signMenuBar && (
                             <ul>

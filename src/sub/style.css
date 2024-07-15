@@ -6,12 +6,12 @@
     width: 939px;
     margin: 0 auto;
     text-align: center;
-    padding: 10px;
+    padding: 20px;
 }
 
 #sub_wrap h2 {
     text-align: center;
-    margin-bottom: -20px;
+    margin-bottom: 0px;
     color: #242424;
 }
 
