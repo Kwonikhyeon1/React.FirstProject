@@ -1,0 +1,17 @@
+/* TOP ARROW */
+#top-arrow {
+    position: fixed;
+    right: 30px; bottom: 30px;
+    width: 60px; height: 60px;
+    line-height: 54px;
+    text-align: center;
+    background-color: rgba(163, 207, 230, 0.3);
+    border: 1px solid rgba(163, 207, 230, 0.4);
+    box-sizing: border-box;
+    border-radius: 30px;
+}
+
+#top-arrow:hover {
+    cursor: pointer;
+    background-color: rgba(163, 207, 230, 0.5);
+}

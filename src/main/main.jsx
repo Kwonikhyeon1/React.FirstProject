@@ -1,44 +1,56 @@
 import React, { useEffect, useState } from 'react'
 
-import  { getAllAres, getAllDBJobj, getAllSpotArea, initTravelDB, findSpot  } from './travelDB.js'
+
 
 import './main.css'
-import { useParams } from 'react-router-dom'
+import './Top.css'
+import {  useParams } from 'react-router-dom'
+import ImgNoChange from '../main/ImgNoChange.jsx'
+import Top from '../main/Top.jsx'
+import  { getAllAres, getAllDBJobj, getAllSpotArea, initTravelDB, findSpot, getCommentRank  } from '../main/travelDB.js'
 
-
-const Main = () => {
+const Main = (props) => {
 
     const param = useParams();
 
-    const [allDB, setAllDB] = useState();
-    const [allArea, setAllArea] = useState();
-    const [allSpot, setAllSpot] = useState();
+    // const [allDB, setAllDB] = useState();
+    // const [allArea, setAllArea] = useState();
+    // const [allSpot, setAllSpot] = useState();
+    //const [curImgNo, setCurImgNo] = useState(0);
+    const [curSpot, setCurSpot] = useState('');
+ 
 
 
     useEffect(() => {
 
-    initTravelDB();
+        // initTravelDB();
 
-    
+        props.setAllDB(getAllDBJobj());      // Object
 
-        setAllDB(getAllDBJobj());      // Object
-        setAllArea(getAllAres());      // Array
-        setAllSpot(getAllSpotArea(param.area, param.result));  // Array
-    console.log(' -- parameter --> ',param.area, param.result);
-            
-    },[])
+        props.setAllArea(getAllAres());      // Array
+        // setAllSpot(getAllSpotArea(param.curMenu, param.result));  // Array
+        props.setAllSpot(getAllSpotArea(param.curMenu, param.result));  // Array
+        console.log(' -- parameter --> ',param.curMenu, param.result);
+
+        if(props.curMenu !== undefined && props.curMenu === param.curMenu){
+            document.getElementsByName(props.curMenu)[0].style.backgroundColor='#fff';
+            document.getElementsByName(props.curMenu)[0].style.color='#000';
+        } else if(props.curMenu !== undefined && param.curMenu === '서치') {
+            document.getElementsByName(props.curMenu)[0].style.backgroundColor='';
+            document.getElementsByName(props.curMenu)[0].style.color='';
+        }
+                
+    },[props.menuFlag])
 
 
-const test = (e, title) => {
-    console.log('test()');
-    console.log(param.area)
-
-    console.log(allSpot);
-    console.log(title);
-    console.log(title.substr(0,10))
-    // console.log(findSpot(title));
-
-}
+    const imgNoChangeClick = (e, value, spot) => {
+        console.log('imgNoChangeClick()');
+        
+        e.target.innerText = "●";
+        console.log(document.getElementsByTagName('span'))
+        
+        
+    }
 
 
     return(
@@ -46,45 +58,39 @@ const test = (e, title) => {
         <div id="Main">
             <ul className='bot-menu-one'>
             {
-                allSpot !== undefined
+                props.allSpot !== undefined
                 ?
-                allSpot.map((item, idx) =>
+                props.allSpot.map((item, idx) =>
                 {
                     return(
                         Number(idx) < 4 
                         ? 
                             <>
-                                <li key={idx} onClick={(e) => test(e, allDB[item].title )}>
-                                    <div className='spot-img' >
-                                    {
-                                        
-                                        allSpot !== undefined
-                                        ?
-                                        <img src={allDB[item].img_src} />
-                                        :
-                                        null
-                                    }
-                                    </div>
+                                <li key={idx} >
+
+                                    <ImgNoChange allDB={props.allDB} spotTitle={props.allDB[item].title} allSpot={props.allSpot} curImg={props.curImg} setCurImg={props.setCurImg}
+                                    passImg={props.passImg} setPassImg={props.setPassImg} />
+
                                     <div className='spot-title' >
                                     {
                                         
-                                        allSpot !== undefined
+                                        props.allSpot !== undefined
                                         ?
-                                        `${allDB[item].title}`
+                                        `${props.allDB[item].title}`
                                         :
                                         null
                                     }
                                     </div>
                                     <div className='spot-address'>
                                         {
-                                            allSpot !== undefined
+                                            props.allSpot !== undefined
                                             ?
-                                            `${allDB[item].address.split(" ")[0]} ${allDB[item].address.split(" ")[1]}`
+                                            `${props.allDB[item].address.split(" ")[0]} ${props.allDB[item].address.split(" ")[1]}`
                                             :
                                             null                
                                         }
                                     </div>
-                                    <div className='spot-rank'>★</div>
+                                    <div className='spot-rank'>{`${getCommentRank(props.allDB[item].title)}`}</div>
                                 </li>
                             </>
                         :
@@ -99,45 +105,37 @@ const test = (e, title) => {
 
             <ul className='bot-menu-one'>
             {
-                allSpot !== undefined
+                props.allSpot !== undefined
                 ?
-                allSpot.map((item, idx) =>
+                props.allSpot.map((item, idx) =>
                 {
                     return(
                         Number(idx) >= 4 
                         ? 
                             <>
-                                <li key={idx}  onClick={(e) => test(e, allDB[item].title )}>
-                                    <div className='spot-img' >
-                                    {
-                                        
-                                        allSpot !== undefined
-                                        ?
-                                        <img src={allDB[item].img_src} />
-                                        :
-                                        null
-                                    }
-                                    </div>
+                                <li key={idx} >
+
+                                    <ImgNoChange allDB={props.allDB} spotTitle={props.allDB[item].title} allSpot={props.allSpot} curImg={props.curImg} setCurImg={props.setCurImg}/>
                                     <div className='spot-title' >
                                     {
                                         
-                                        allSpot !== undefined
+                                        props.allSpot !== undefined
                                         ?
-                                        `${allDB[item].title}`
+                                        `${props.allDB[item].title}`
                                         :
                                         null
                                     }
                                     </div>
                                     <div className='spot-address'>
                                         {
-                                            allSpot !== undefined
+                                            props.allSpot !== undefined
                                             ?
-                                            `${allDB[item].address.split(" ")[0]} ${allDB[item].address.split(" ")[1]}`
+                                            `${props.allDB[item].address.split(" ")[0]} ${props.allDB[item].address.split(" ")[1]}`
                                             :
                                             null                
                                         }
                                     </div>
-                                    <div className='spot-rank'>★</div>
+                                    <div className='spot-rank'>{`${getCommentRank(props.allDB[item].title)}`}</div>
                                 </li>
                             </>
                         :
@@ -149,7 +147,7 @@ const test = (e, title) => {
                 null
             }
             </ul>
-
+            <Top />
         </div>
     );
 }
