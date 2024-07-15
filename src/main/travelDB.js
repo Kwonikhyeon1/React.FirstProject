@@ -1802,3 +1802,39 @@ export const getCommentRank = (spot='국립중앙박물관') => {
     return strRank;
 
 }
+
+
+export const dispRank = (cntVal) => {
+    console.log('dispRank()');
+
+    let strRank = '';
+
+    if (cntVal === '0') {
+
+        strRank = '☆☆☆☆☆';
+
+    } else {
+
+        for (let i = 0; i < cntVal; i++)
+            strRank += '★';
+        
+        for (let i = 0; i< 5-cntVal; i++)
+            strRank += '☆';
+    }
+    return strRank;
+
+}
+
+
+export const getComment = (spot) => {
+    console.log('getComment())');
+
+    let commentDB = JSON.parse(localStorage.getItem('commentDB'));
+
+    let comments = [];
+    for (let i = 0; i < commentDB[spot].length; i++)
+        comments.push(commentDB[spot][i])
+
+    return comments.reverse();
+
+}

@@ -4,6 +4,9 @@ import { useParams } from "react-router-dom";
 import  { getAllAres, getAllDBJobj, getAllSpotArea, initTravelDB, findSpot, getCommentDB  } from '../main/travelDB.js'
 import GoogleMap from './GoogleMap.tsx'
 import CommentWrite from '../comment/CommenWritet.jsx'
+import CommentList from '../main/CommentList.jsx'
+import '../main/Top.css'
+import Top from '../main/Top.jsx'
 
 const SubPage = (props) =>{
 
@@ -38,8 +41,10 @@ const SubPage = (props) =>{
                 </div>
                 <GoogleMap lat={lat} lng={lng}/>
                 <br />
-                <br />
                 <CommentWrite spot={param.spotname}/>
+                <br />
+                <CommentList spot={param.spotname}/>
+                <Top />
 
         </div>
     )
