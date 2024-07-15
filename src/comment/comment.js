@@ -19,18 +19,18 @@ export const setTravelInfoMemberDB = (mems) => {
     localStorage.setItem(MEMBER_DB_IN_LOCALSTORAGE, JSON.stringify(mems));
 
 }
-//로그인 세션 저장소
-export const getLoginedSessionID = () => {
-    console.log('getLoginedSessionID()');
+// //로그인 세션 저장소
+// export const getLoginedSessionID = () => {
+//     console.log('getLoginedSessionID()');
 
-    return loginedSessionID;
-}
+//     return loginedSessionID;
+// }
 
-export const setLoginedSessionID = (id) => {
-    console.log('setLoginedSessionID()');
+// export const setLoginedSessionID = (id) => {
+//     console.log('setLoginedSessionID()');
 
-    loginedSessionID =id;
-}
+//     loginedSessionID =id;
+// }
 
 
 //// 로그인시 확인 기능 ///

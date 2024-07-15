@@ -8,12 +8,15 @@ const containerStyle = {
   height: "400px",
 }; // 지도 크기를 설정해준다.
 
-const center = {
-  lat: 37.5237473,
-  lng: 126.9829216,
-}; // 센터 좌표를 추가해준다. 
 
-function MyComponent() {
+
+function MyComponent(props : any) {
+
+  const center = {
+    lat: Number(props.lat),
+    lng: Number(props.lng),
+  }; // 센터 좌표를 추가해준다. 
+
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: "AIzaSyCiexwwtmPQBCJLNF4cx3Vat0etDYXCdeY", // 이곳에 아까 발급받은 API KEY를 입력해준다.

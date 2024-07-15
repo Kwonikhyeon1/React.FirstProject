@@ -1652,6 +1652,39 @@ let travelDBJson  =  {
             }
 }
 
+let commentDBJson = {
+    "국립중앙박물관" :
+        [
+            {
+                "id":"dildong",
+                "comment":"멘트 길동",
+                "ragdate":"",
+                "moddate":"",
+                "rank":"1"
+            },
+            {
+                "id":"chanho",
+                "comment":"멘트 찬호",
+                "ragdate":"",
+                "moddate":"",
+                "rank":"2"
+            }
+        ],
+    "경복궁" :
+        [
+            {
+                "id":"gildong",
+                "comment":"멘트 길동",
+                "ragdate":"",
+                "moddate":"",
+                "rank":"3"
+            }
+    
+        ]
+    }
+
+
+
 
 
 export const initTravelDB = () => {

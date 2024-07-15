@@ -109,7 +109,7 @@ const Menubar = (props) => {
                 </div>
 
                 <div className="sign_bar"  onClick={toggleClickHandler} onMouseLeave={toggleLeaveHandler}>
-                    <span className="material-symbols-outlined"  onClick={toggleClickHandler}
+                    <span className="material-symbols-outlined" 
                         style ={
                             props.isSignIned 
                             ?

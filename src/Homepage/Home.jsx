@@ -68,7 +68,7 @@ const Home = () => {
                     />} />
                     <Route path="/signup" element={<SignUp />} />
                     <Route path="/modify" element={<Modify isSignIned={isSignIned} setIsSignIned={setIsSignIned}/>} />
-                    <Route path="/subpage/:spotname" element={<SubPage allDB={allDB} curImgNo={curImgNo} setCurImgNo={setCurImgNo} passImg={passImg} setPassImg={setPassImg}/>} />
+                    <Route path="/subpage/:spotname" element={<SubPage isSignIned={isSignIned} allDB={allDB} curImgNo={curImgNo} setCurImgNo={setCurImgNo} passImg={passImg} setPassImg={setPassImg}/>} />
                 </Routes>
                 </div>
                 <Footer />

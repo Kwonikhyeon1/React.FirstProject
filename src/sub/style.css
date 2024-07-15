@@ -9,9 +9,9 @@
     padding: 20px;
 }
 
-#sub_wrap h2 {
+#sub_wrap h1 {
     text-align: center;
-    margin-bottom: 0px;
+    margin-bottom: 10px;
     color: #242424;
 }
 
@@ -43,6 +43,10 @@
     padding-bottom: 10px;
 }
 
+#sub_wrap .sub_img {
+    max-width: 98%;
+    min-width: 98%;
+}
 
 #sub_wrap .google_map {
     margin: 10px;
