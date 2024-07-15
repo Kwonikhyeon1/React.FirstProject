@@ -1772,7 +1772,7 @@ export const getCommentDB = (title) => {
 
 }
 
-export const getCommentRank = (spot='국립중앙박물관') => {
+export const getCommentRank = (spot) => {
     console.log('getCommentRank()');
 
     let commentDB = JSON.parse(localStorage.getItem('commentDB'));

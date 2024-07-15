@@ -13,6 +13,8 @@ const CommentList = (props) => {
         console.log('spot -->',props.spot);
         console.log('id -->',getLoginedSessionID());
         setCommentList(getComment(props.spot));
+        console.log(typeof(commentList));
+        console.log(commentList);
 
     }, []);
 
@@ -33,17 +35,19 @@ const CommentList = (props) => {
             <div id="list-wrap">
                 <div className="list-item">
                     {
-                        commentList.map(e => 
-                            <>
-                            <div className="item-wrap">
-                            <div className="id">{e.id.substr(0,1)}</div>
-                            <input id='fullId' type='hidden' value={`${e.id}`}/>
-                            <input id="mention" type="text" readOnly onClick={myMenModify} value={`${e.comment}`}/>
-                            <div className="moddate">{e.moddate}</div>
-                            <div className="rank">{dispRank(e.rank)}</div>
-                            </div>
-                            </>
-                        )
+                                                
+                                                commentList.map(e => 
+                                                    <>
+                                                    <div className="item-wrap">
+                                                    <div className="id">{e.id.substr(0,1)}</div>
+                                                    <input id='fullId' type='hidden' value={`${e.id}`}/>
+                                                    <input id="mention" type="text" readOnly onClick={myMenModify} value={`${e.comment}`}/>
+                                                    <div className="moddate">{e.moddate}</div>
+                                                    <div className="rank">{dispRank(e.rank)}</div>
+                                                    </div>
+                                                    </>
+                                                ) 
+                                                
                     }
                 </div>
             </div>

@@ -113,7 +113,8 @@ const Main = (props) => {
                             <>
                                 <li key={idx} >
 
-                                    <ImgNoChange allDB={props.allDB} spotTitle={props.allDB[item].title} allSpot={props.allSpot} curImg={props.curImg} setCurImg={props.setCurImg}/>
+                                    <ImgNoChange allDB={props.allDB} spotTitle={props.allDB[item].title} allSpot={props.allSpot} curImg={props.curImg} setCurImg={props.setCurImg}
+                                    passImg={props.passImg} setPassImg={props.setPassImg} />
                                     <div className='spot-title' >
                                     {
                                         

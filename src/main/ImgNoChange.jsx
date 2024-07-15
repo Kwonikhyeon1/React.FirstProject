@@ -8,10 +8,11 @@ const ImgNoChange =(props) => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        // console.log(props.allDB);
-        // console.log(`[ImgNoChange]  props.spotTitle ==> ${props.spotTitle}`);
-        // console.log(`[ImgNoChange]  props.allSpot ==> ${props.allSpot}`);
-        // console.log(`[ImgNoChange]  props.curImgNo ==> ${props.curImgNo}`);
+         console.log('====================ImgNoChange=================');
+         console.log(props.allDB);
+         console.log(`[ImgNoChange]  props.spotTitle ==> ${props.spotTitle}`);
+         console.log(`[ImgNoChange]  props.allSpot ==> ${props.allSpot}`);
+         console.log(`[ImgNoChange]  props.curImgNo ==> ${props.curImgNo}`);
 
     },[])
 
