@@ -7,7 +7,7 @@ import CommentWrite from '../comment/CommenWritet.jsx'
 import CommentList from '../main/CommentList.jsx'
 import '../main/Top.css'
 import Top from '../main/Top.jsx'
-import StarRank from '../main/StarRank.jsx'
+
 
 const SubPage = (props) =>{
 
@@ -38,7 +38,6 @@ const SubPage = (props) =>{
         <div id="sub_wrap">
             
                 <h1>{param.spotname}</h1>
-                <StarRank />
                 <h4>{props.allDB[param.spotname].address}</h4>
                 <img className="sub_img" src={props.allDB[param.spotname].img_src[Number(props.passImg)]} /> 
                 <div className="text_wrap">

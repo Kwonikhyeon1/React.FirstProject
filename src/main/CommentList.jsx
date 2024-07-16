@@ -19,8 +19,8 @@ const CommentList = (props) => {
     }, []);
 
 
-    const myMenModify = () => {
-        let fullId = document.getElementById('fullId').value;
+    const myMenModify = (e) => {
+        let fullId = e.target.previousElementSibling.value;
 
         if(getLoginedSessionID() === '') {
             alert('수정은 로그인 하셔야 가능합니다');
@@ -36,17 +36,17 @@ const CommentList = (props) => {
                 <div className="list-item">
                     {
                                                 
-                                                commentList.map(e => 
-                                                    <>
-                                                    <div className="item-wrap">
-                                                    <div className="id">{e.id.substr(0,1)}</div>
-                                                    <input id='fullId' type='hidden' value={`${e.id}`}/>
-                                                    <input id="mention" type="text" readOnly onClick={myMenModify} value={`${e.comment}`}/>
-                                                    <div className="moddate">{e.moddate}</div>
-                                                    <div className="rank">{dispRank(e.rank)}</div>
-                                                    </div>
-                                                    </>
-                                                ) 
+                        commentList.map(e => 
+                            <>
+                            <div className="item-wrap">
+                            <div className="id">{e.id.substr(0,1)}</div>
+                            <input className='fullId' type='hidden' value={`${e.id}`}/>
+                            <input className="mention" type="text" readOnly onClick={myMenModify} value={`${e.comment}`}/>
+                            <div className="moddate">{e.moddate}</div>
+                            <div className="rank">{dispRank(e.rank)}</div>
+                            </div>
+                            </>
+                        ) 
                                                 
                     }
                 </div>
