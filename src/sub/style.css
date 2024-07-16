@@ -4,7 +4,7 @@
 
 #sub_wrap {
     width: 939px;
-    margin: 0 auto;
+    margin: 20px auto;
     text-align: center;
     padding: 20px;
 }
@@ -36,6 +36,7 @@
 #sub_wrap .text_wrap p {
     line-height: 26px;
     font-size: 1.1em;
+    margin-top: 5px;
 }
 
 
@@ -45,8 +46,8 @@
 }
 
 #sub_wrap .sub_img {
-    max-width: 98%;
-    min-width: 98%;
+    max-width: 100%;
+    min-width: 100%;
 }
 
 /* #sub_wrap .map {
@@ -80,11 +81,11 @@
 .sign-up,
 .sign-in,
 .modify {
-    width: 380px;
-    height: 380px;
+    width: 280px;
+    /* height: 380px; */
     margin: 100px auto ;
     padding: 20px;
-    /* background-color: #f0efef; */
+    /* background-color: #c01212; */
     text-align: center;
     position: relative;
     
@@ -96,49 +97,56 @@
 .modify h3 {
     font-size: 1.8em;
     text-align: center;
+    margin-bottom: 10px;
 }
 
 .sign-up input.txt-basic, 
 .sign-in input.txt-basic,
 .modify input.txt-basic {
-    width: 280px;
+    width: 100%;
+    height: 40px;
     padding: 20px;
     font-size: 1.1em;
-    margin: 10px;
+    margin-bottom: 10px;
     border: 1px solid rgba(100, 100, 100, .4);
     outline: none;
     border-radius: 5px;
+    box-sizing: border-box;
+   
 }
 
 .sign-up input.btn-basic,
 .sign-in input.btn-basic,
 .modify input.btn-basic  {
-    width: 320px;
-    height: 50px;
+    width: 100%;
+    height: 40px;
     padding: 10px;
-    margin: 15px 5px 5px 5px;
+    /* margin: 15px 5px 5px 5px; */
     border: 1px solid rgba(100, 100, 100, .4);
     outline: none;
     border-radius: 5px;
     cursor: pointer;
     color: #fff;
     font-size: 1.2em;
+    line-height: 5px;
     background-color: #3277D1
 } 
 
 
 .sign-in input.btn-small,
 .modify input.btn-small {
-    width: 120px; height: 50px;
+    width: 120px; height: 40px;
     padding: 10px;
     margin: 10px;
-    position: absolute;
-    right: 45px;
+    float: right;
+    /* position: absolute;
+    right: 45px; */
     border: 1px solid rgba(100, 100, 100, .4);
     outline: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 1.2em;
+    line-height: 5px;
     background-color: rgb(219, 219, 219);
 
 }
@@ -148,3 +156,7 @@
 
     min-height: 580px;
 }
+
+
+/* 회원가입시 주소검색 모달 */
+

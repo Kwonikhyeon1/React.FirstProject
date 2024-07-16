@@ -19,20 +19,20 @@ const Bg = () => {
       className="swiper-container"
       modules={[Autoplay, Navigation]} //모듈명 설정!!!!!!!!!! 내부함수로 해줘야 적용됨!!!!!!!
     >
+       {/* <SwiperSlide className="bg_img">
+        <img src="https://www/wp-content/uploads/main-01.jpg" alt="dokdo" className="bg_img" />
+      </SwiperSlide> */}
       <SwiperSlide className="bg_img">
-        <img src="https://www.visitkorea.or.kr/intro_new/images/pic01.jpg" alt="dokdo" className="bg_img" />
+        <img src="https://www.ecobus.co.kr/wp-content/uploads/main-01.jpg" alt="seoul" className="bg_img" />
       </SwiperSlide>
       <SwiperSlide className="bg_img">
-        <img src="https://www.visitkorea.or.kr/intro_new/images/pic02.jpg?v=1" alt="seoul" className="bg_img" />
+        <img src="https://www.ecobus.co.kr/wp-content/uploads/main-02.jpg" alt="jeju" className="bg_img" />
       </SwiperSlide>
       <SwiperSlide className="bg_img">
-        <img src="https://www.visitkorea.or.kr/intro_new/images/pic03.jpg?v=1" alt="jeju" className="bg_img" />
+        <img src="https://www.ecobus.co.kr/wp-content/uploads/main-03.jpg" alt="maple" className="bg_img" />
       </SwiperSlide>
       <SwiperSlide className="bg_img">
-        <img src="https://www.visitkorea.or.kr/intro_new/images/pic04.jpg" alt="maple" className="bg_img" />
-      </SwiperSlide>
-      <SwiperSlide className="bg_img">
-        <img src="https://www.visitkorea.or.kr/intro_new/images/pic05.jpg" alt="maple" className="bg_img" />
+        <img src="https://www.ecobus.co.kr/wp-content/uploads/main-04.jpg" alt="maple" className="bg_img" />
       </SwiperSlide>
     </Swiper>
     </>

@@ -7,6 +7,7 @@ import {setLoginedSessionID} from '../member/session.js'
 
 
 
+
 const Menubar = (props) => {
     // hook
     const navigate = useNavigate()                               // main page
@@ -31,10 +32,10 @@ const Menubar = (props) => {
      }
 
     const goHome = () => {
-        if (props.curMenu !== undefined){
-            document.getElementsByName(props.curMenu)[0].style.backgroundColor= '';
-            document.getElementsByName(props.curMenu)[0].style.color='';
-        }
+        // if (props.curMenu !== undefined){
+        //     document.getElementsByName(props.curMenu)[0].style.backgroundColor= '';
+        //     document.getElementsByName(props.curMenu)[0].style.color='';
+        // }
         navigate(`/`);
     }
  
@@ -60,7 +61,7 @@ const Menubar = (props) => {
     const searchSpot = (e, spot) => {                           // main page
         console.log('[Menubar] searchSpot()');
 
-        // if (spot === '') return alert('검색하고자 하는 곳을 입력하세요')
+        if (spot.replace(/^\s+|\s+$/g,'') === '') return alert('검색하고자 하는 곳을 입력하세요')
 
         let searcResult = findSpot(spot);
 
@@ -101,7 +102,8 @@ const Menubar = (props) => {
     return (
         <>
             <div className="header">
-                <h2 onClick={goHome}>어디로 떠나고 싶으세요?</h2>
+                {/* <h2 onClick={goHome}>어디로 떠나고 싶으세요?</h2> */}
+                <h2 onClick={goHome}><img src="https://ecobus.co.kr/wp-content/uploads/travellogo.png" /></h2>
 
                 <div className="search_bar">
                     <input type="text" className="search" id="searchInput" onKeyDown={goEnter}/>

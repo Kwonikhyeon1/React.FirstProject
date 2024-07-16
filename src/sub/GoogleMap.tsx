@@ -4,9 +4,9 @@ import { GoogleMap, useJsApiLoader , MarkerF } from "@react-google-maps/api"; //
 
 
 const containerStyle = {
-  width: "98%",
+  width: "100%",
   height: "400px",
-  border: "1px solid #dadada",
+  border: "1px solid #a3a3a3",
   borderRadius: "10px"
 }; // 지도 크기를 설정해준다.
 
@@ -56,7 +56,7 @@ function MyComponent(props : any) {
       zoom={15} // 초기 생성 시 줌 레벨을 설정
       onLoad={onLoad} // onLoad 됐을 시의 로직을 설정
       onUnmount={onUnmount} // onUnmount 됐을 시의 로직을 설정
-      options={{ disableDefaultUI:  true, styles: myStyles }} // 추가적인 옵션을 설정, 여기선 기본 UI를 숨김 처리함
+      options={{ disableDefaultUI:  true, styles: myStyles, gestureHandling: 'greedy' }} // 추가적인 옵션을 설정, 여기선 기본 UI를 숨김 처리함
       
     
     >

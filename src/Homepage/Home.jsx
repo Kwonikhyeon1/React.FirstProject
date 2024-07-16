@@ -9,6 +9,7 @@ import Modify from "../member/Modify.jsx";
 import SubPage from "../sub/SubPage.jsx"
 import CommentWrite from'../comment/CommenWritet.jsx'
 import Main from'../main/main.jsx'                                  // main page
+import ScrollToTop from "./ScrollToTop.js";
 
 
 import  { getAllAres, getAllDBJobj, getAllSpotArea, initTravelDB, findSpot, getCommentRank  } from '../main/travelDB.js'
@@ -51,7 +52,9 @@ const Home = () => {
             <BrowserRouter>
                 <Menubar curMenu={curMenu} setCurMenu={setCurMenu} isSignIned={isSignIned} setIsSignIned={setIsSignIned} menuFlag={menuFlag} setMenuFlag={setMenuFlag}  signMenuBar={signMenuBar} setSignMenuBar={setSignMenuBar}/>
                 <div className="home_wrap">
+                <ScrollToTop />
                 <Routes>
+                    
                     <Route path="/comment" element={<CommentWrite />} />    { /*main page */}
                     <Route path="/" element={<HomeBg />} />
                     <Route path="/main/:curMenu/:result" element={<Main curMenu={curMenu} setCurMenu={setCurMenu} menuFlag={menuFlag} 

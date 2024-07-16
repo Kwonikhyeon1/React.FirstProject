@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getMyInfo, setMyInfo, getDateTime ,getAllMemberInfo , setTravelInfoMemberDB  } from "./MemberUtils";
 import { getLoginedSessionID , setLoginedSessionID } from "./session";
+import Post from "./Post";
 
 
 const Modify = (props) => {
@@ -9,6 +10,12 @@ const Modify = (props) => {
     const [uId, setUId] = useState('');
     const [uPw, setUPw] = useState('');
     const [uMail, setUMail] = useState('');
+    const [enroll_company, setEnroll_company] = useState({
+        address:'',
+        zonecode:'',
+    });
+
+    
 
     const navigate = useNavigate();
 
@@ -27,6 +34,12 @@ const Modify = (props) => {
         setUId(myInfo.uId);
         setUPw(myInfo.uPw);
         setUMail(myInfo.uMail);
+        setEnroll_company({'zonecode' : myInfo.uZoneCode,'address' : myInfo.uAddress});
+        // setEnroll_company({'zonecode' : myInfo.uZoneCode},{'address' : myInfo.uAddress});
+        // setEnroll_company(zonecode = myInfo.uZonecode);
+
+
+        
 
     },[]);
 
@@ -50,6 +63,8 @@ const Modify = (props) => {
 
         myInfo.uPw = uPw;
         myInfo.uMail = uMail;
+        myInfo.uZoneCode = enroll_company.zonecode;
+        myInfo.uAddress = enroll_company.address;
         myInfo.uModDate = getDateTime();   
 
         if (uPw.match( /(?=.*\d)(?=.*[a-z]).{8,}/) === null ){
@@ -92,7 +107,20 @@ const Modify = (props) => {
     }
     }
 
+    const [popup, setPopup] = useState(false);
+    
+    const handleInput = (e) => {
+        setEnroll_company({
+            ...enroll_company,
+            [e.target.name]:e.target.value,
+        })
+    }
+    
+    const handleComplete = (data) => {
+        setPopup(!popup);
+    }
 
+  
 
 
     return(
@@ -102,6 +130,12 @@ const Modify = (props) => {
             <input type="text" value={uId} className="txt-basic" readOnly /><br />
             <input type="password" value={uPw} onChange={uPwChangeHandler} className="txt-basic" placeholder="비밀번호 변경" /><br />
             <input type="email" value={uMail} onChange={uMailChangeHandler} className="txt-basic" placeholder="메일주소 변경" /><br />
+            <div className="post_code">
+             <input className="user_enroll_text_code"  placeholder="우편번호" type="text" required={true} name="address" onChange={handleInput} value={enroll_company.zonecode}/>
+             <button onClick={handleComplete}>주소검색</button></div>
+             <input className="user_enroll_text" type="text" required={true} name="address" onChange={handleInput} value={enroll_company.address}/>
+             {popup && <Post company={enroll_company} setcompany={setEnroll_company} > </Post>}
+
             <input type="button" onClick={modifyBtnClickHandler} className="btn-basic" value="정보수정" /><br />
             <input type="button" onClick={deleteBtnClickHandler} className="btn-small" value="회원탈퇴" />
        </div>
