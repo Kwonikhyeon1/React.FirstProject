@@ -45,9 +45,18 @@ const Modify = (props) => {
 
 
 
-    const uPwChangeHandler = (e) => {
-        console.log('[Modify] uPwChangeHandler()');
+    const uPwChangeHandler =(e) => {
+        console.log('[signUp] uPwClickHandler()');
+        
         setUPw(e.target.value);
+        if (uPw.length >= 0 && uPw.match( /(?=.*\d)(?=.*[a-z]).{7,}/) === null ){
+            e.target.style.color = '#f00'
+        } else {
+            e.target.style.color = '#000'
+        }
+            return;
+
+
     }
 
     const uMailChangeHandler = (e) => {
@@ -75,7 +84,7 @@ const Modify = (props) => {
 
         setMyInfo(getLoginedSessionID(), myInfo);           // DB 업데이트
 
-        alert('수정 완료');
+        alert('회원정보 수정이 완료되었습니다.');
 
         //setIsSignIned(false); 
 
@@ -92,7 +101,7 @@ const Modify = (props) => {
         delete allMemberInfo[getLoginedSessionID()];
         setTravelInfoMemberDB(allMemberInfo);
 
-        alert('계정 삭제완료!!');  // notification UI
+        alert('계정 삭제가 완료되었습니다.');  // notification UI
 
         props.setIsSignIned(false); 
 
@@ -102,7 +111,7 @@ const Modify = (props) => {
 
 
      } else {
-        alert('계정 삭제실패!!');  // notification UI
+        alert('계정 삭제가 취소되었습니다.');  // notification UI
 
     }
     }
@@ -136,7 +145,7 @@ const Modify = (props) => {
              <input className="user_enroll_text" type="text" required={true} name="address" onChange={handleInput} value={enroll_company.address}/>
              {popup && <Post company={enroll_company} setcompany={setEnroll_company} > </Post>}
 
-            <input type="button" onClick={modifyBtnClickHandler} className="btn-basic" value="정보수정" /><br />
+            <input type="button" onClick={modifyBtnClickHandler} className="btn-basic" value="수정완료" /><br />
             <input type="button" onClick={deleteBtnClickHandler} className="btn-small" value="회원탈퇴" />
        </div>
         

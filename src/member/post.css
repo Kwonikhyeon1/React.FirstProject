@@ -9,6 +9,7 @@
     margin-bottom: 10px;
     box-sizing: border-box;
     float: left;
+    outline: none;
 }
 
 .user_enroll_text {
@@ -19,7 +20,8 @@
     border-radius: 5px;
     margin-bottom: 10px;
     box-sizing: border-box;
-    font-size: 1.2em;
+    font-size: 1.1em;
+    outline: none;
     
 }
 

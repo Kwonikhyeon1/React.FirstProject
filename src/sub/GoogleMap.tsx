@@ -7,7 +7,9 @@ const containerStyle = {
   width: "100%",
   height: "400px",
   border: "1px solid #a3a3a3",
-  borderRadius: "10px"
+  borderRadius: "10px",
+  // outline: "none",
+  
 }; // 지도 크기를 설정해준다.
 
 

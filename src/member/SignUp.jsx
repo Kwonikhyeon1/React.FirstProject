@@ -22,7 +22,7 @@ const SignUp = () => {
         console.log('[signUp] uIdClickHandler()');
         
         setUId(e.target.value);
-    
+
     }
 
 
@@ -30,6 +30,16 @@ const SignUp = () => {
         console.log('[signUp] uPwClickHandler()');
         
         setUPw(e.target.value);
+        if (uPw.length >= 0 && uPw.match( /(?=.*\d)(?=.*[a-z]).{7,}/) === null ){
+            e.target.style.color = '#f00'
+        } else {
+            e.target.style.color = '#000'
+        }
+            return;
+
+
+
+    
         
 
     }
@@ -75,7 +85,8 @@ const SignUp = () => {
 
         
         if (uPw.match( /(?=.*\d)(?=.*[a-z]).{8,}/) === null ){
-            alert('비밀번호는 8자 이상의 영어소문자 + 숫자로 입력해주세요')
+            alert('비밀번호는 8자 이상의 영어소문자 + 숫자로 입력해주세요');
+            
             return;
 
         } 
@@ -161,16 +172,40 @@ const SignUp = () => {
         setPopup(!popup);
     }
 
-  
-    
+    // const testId = (e) => {
+    //     if(e.keyCode === 13 || e.keyCode === 9) {
+    //         let travelInfoMembers = JSON.parse(getTravelInfoMemberDB());
+    //         if (travelInfoMembers[uId] ){
+    //             alert('사용중인 아이디 입니다.')
+    //         }
+            
+    //     }
+    // }
+
+
+
+
+    const testLeaveId = () => {
+        
+        if(getTravelInfoMemberDB()){
+            let travelInfoMembers = JSON.parse(getTravelInfoMemberDB());
+            if (travelInfoMembers[uId] ){
+                alert('사용중인 아이디 입니다.')
+            }
+        }
+        
+    }
+
+
+
     return(
 
 
         <div className="sign-up">
             <h3> 회원가입 </h3>
             
-            <input type="text" onChange={uIdChangeHandler} className="txt-basic" placeholder="아이디를 입력하세요" /><br />
-            <input type="password" onChange={uPwChangeHandler} className="txt-basic" placeholder="비밀번호 입력" /><br />
+            <input type="text" onBlur={testLeaveId}  onChange={uIdChangeHandler} className="txt-basic" placeholder="아이디를 입력하세요" /><br />
+            <input id='pw' type="password" onChange={uPwChangeHandler} className="txt-basic" placeholder="비밀번호 입력" /><br />
             <input type="email" onChange={uMailChangeHandler} className="txt-basic" placeholder="메일주소를 입력하세요" /><br />
             <div className="post_code">
              <input className="user_enroll_text_code" placeholder="우편번호" type="text" required={true} name="address" onChange={handleInput} value={enroll_company.zonecode}/>

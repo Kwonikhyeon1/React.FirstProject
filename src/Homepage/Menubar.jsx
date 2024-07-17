@@ -36,6 +36,12 @@ const Menubar = (props) => {
         //     document.getElementsByName(props.curMenu)[0].style.backgroundColor= '';
         //     document.getElementsByName(props.curMenu)[0].style.color='';
         // }
+
+        let befMenu = props.curMenu;
+        if (befMenu !== undefined){
+            document.getElementsByName(befMenu)[0].setAttribute('style', 'backgroundColor="#000"');
+            document.getElementsByName(befMenu)[0].setAttribute('style', 'color="#fff"');
+        }
         navigate(`/`);
     }
  

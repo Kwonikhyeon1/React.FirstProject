@@ -1,9 +1,12 @@
-let loginedSessionID = '';
+
 
 // USER SESSION
 export const getLoginedSessionID = () => {
     console.log('[session] getLoginedSessionID()');
 
+    if(!localStorage.getItem('loginedSessionID')) return'';
+
+    let loginedSessionID = localStorage.getItem('loginedSessionID');
     return loginedSessionID;
 
 }
@@ -11,6 +14,6 @@ export const getLoginedSessionID = () => {
 export const setLoginedSessionID = (id = '') => {
     console.log('[session] setLoginedSessionID()');
     
-    loginedSessionID = id;
+   localStorage.setItem('loginedSessionID',id);
 
 }
