@@ -14,6 +14,7 @@ const Modify = (props) => {
         address:'',
         zonecode:'',
     });
+    const [ableRender, setAbleRender] = useState(false);
 
     
 
@@ -23,7 +24,7 @@ const Modify = (props) => {
         console.log('[Modify] useEffect()');
 
         let myInfo = getMyInfo(getLoginedSessionID());
-
+        
         if(myInfo === undefined){
             alert('로그인 하세요');
             navigate('/signin');
@@ -31,6 +32,8 @@ const Modify = (props) => {
 
         }
 
+        setAbleRender(true);
+        
         setUId(myInfo.uId);
         setUPw(myInfo.uPw);
         setUMail(myInfo.uMail);
@@ -133,22 +136,29 @@ const Modify = (props) => {
 
 
     return(
-    
-        <div className="modify">
-            <h3> 회원 정보 수정 </h3>
-            <input type="text" value={uId} className="txt-basic" readOnly /><br />
-            <input type="password" value={uPw} onChange={uPwChangeHandler} className="txt-basic" placeholder="비밀번호 변경" /><br />
-            <input type="email" value={uMail} onChange={uMailChangeHandler} className="txt-basic" placeholder="메일주소 변경" /><br />
-            <div className="post_code">
-             <input className="user_enroll_text_code"  placeholder="우편번호" type="text" required={true} name="address" onChange={handleInput} value={enroll_company.zonecode}/>
-             <button onClick={handleComplete}>주소검색</button></div>
-             <input className="user_enroll_text" type="text" required={true} name="address" onChange={handleInput} value={enroll_company.address}/>
-             {popup && <Post company={enroll_company} setcompany={setEnroll_company} > </Post>}
+        <>
+            {
+                ableRender
+                ?
+                <div className="modify">
+                    <h3> 회원 정보 수정 </h3>
+                    <input type="text" value={uId} className="txt-basic" readOnly /><br />
+                    <input type="password" value={uPw} onChange={uPwChangeHandler} className="txt-basic" placeholder="비밀번호 변경" /><br />
+                    <input type="email" value={uMail} onChange={uMailChangeHandler} className="txt-basic" placeholder="메일주소 변경" /><br />
+                    <div className="post_code">
+                    <input className="user_enroll_text_code"  placeholder="우편번호" type="text" required={true} name="address" onChange={handleInput} value={enroll_company.zonecode}/>
+                    <button onClick={handleComplete}>주소검색</button></div>
+                    <input className="user_enroll_text" type="text" required={true} name="address" onChange={handleInput} value={enroll_company.address}/>
+                    {popup && <Post company={enroll_company} setcompany={setEnroll_company} > </Post>}
 
-            <input type="button" onClick={modifyBtnClickHandler} className="btn-basic" value="수정완료" /><br />
-            <input type="button" onClick={deleteBtnClickHandler} className="btn-small" value="회원탈퇴" />
-       </div>
-        
+                    <input type="button" onClick={modifyBtnClickHandler} className="btn-basic" value="수정완료" /><br />
+                    <input type="button" onClick={deleteBtnClickHandler} className="btn-small" value="회원탈퇴" />
+                </div>
+                :
+                null
+
+            }
+        </>
 
     )
 }

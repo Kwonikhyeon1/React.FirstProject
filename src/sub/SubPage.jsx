@@ -31,6 +31,7 @@ const SubPage = (props) =>{
         setLng(props.allDB[param.spotname].geo_loc.split(',')[1]);
         console.log( 'subpage =>  ',props.isSiginIned);
         
+
     },[])
 
     return(

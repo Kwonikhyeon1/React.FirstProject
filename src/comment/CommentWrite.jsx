@@ -2,22 +2,18 @@
  import { getDateTime } from './comment.js';
  import './index.css';
  import { getLoginedSessionID } from '../member/session.js';
- import { getAllTravelCommentDB, setTravelCommentDB } from './comment.js';
+ import { getAllTravelCommentDB, addTravelCommentDB } from './comment.js';
  import CommentStar from './CommentStar.jsx';
 
 
-const CommentWrite = () => {
+const CommentWrite = (props) => {
   // 상태 변수 설정
   const [comment, setComment] = useState('');
   const [rank, setRank] = useState(0);
-  const [spot, setSpot] = useState('');
-  const [comments, setComments] = useState({});
+  const [spot, setSpot] = useState(props.spot);
 
    useEffect(() => {
-     const allComments = getAllTravelCommentDB();
-     if (allComments) {
-       setComments(allComments);
-     }
+
    }, []);
 
    // 핸들러
@@ -38,7 +34,7 @@ const CommentWrite = () => {
      }
 
      const newComment = {
-       spot: spot,
+       //spot: spot,
        uId: getLoginedSessionID(),
        comment: comment,
        rank: rank,
@@ -46,17 +42,11 @@ const CommentWrite = () => {
        regDate: getDateTime(),
      };
 
-     console.log('1 ----> ', comments); 
-     const updateComments = [...comments, newComment,];
-     console.log('----> ', updateComments);
+     
+     addTravelCommentDB(spot, newComment);
+
      return;
 
-     setComments(updateComments);
-     setTravelCommentDB(updateComments);
-
-     setComment('');
-     setSpot('');
-     setRank(0);
    };
 
    return (

@@ -32,3 +32,21 @@
     display: flex;
     
 }
+
+.star_score {
+    margin-top:30px;
+    margin-bottom: 40px;
+    list-style: none;
+    display: flex;
+    position: relative;
+}
+.star_score .inner {
+    width: 50px;
+    display: flex; 
+    position: absolute;
+    left: 22%;
+}
+.star_score .inner li {
+    font-size: 25px;
+    left: 0;
+}

@@ -66,22 +66,97 @@ export const setMyInfo = (uId, myInfo) => {
 
 export const getTravelCommentDB = () => {
     console.log('[MemberUtils] getTravelCommentDB()');
+    
+    if (localStorage.getItem(COMMENT_DB_IN_LOCALSTORAGE)) {
 
-    return localStorage.getItem(COMMENT_DB_IN_LOCALSTORAGE)
+        return localStorage.getItem(COMMENT_DB_IN_LOCALSTORAGE);
+
+    }
+
+    return 
 }
 
-
-export const setTravelCommentDB = (comments) => {
+export const setTravelCommentDB = () => {
     console.log('[MemberUtils] setTravelCommentDB()');
+    
+    localStorage.setItem(COMMENT_DB_IN_LOCALSTORAGE,'');
 
-    localStorage.setItem(COMMENT_DB_IN_LOCALSTORAGE, JSON.stringify(comments));
+    return 
 }
+
+
+export const addTravelCommentDB = (spot, newComment) => {
+    console.log('[MemberUtils] addTravelCommentDB()');
+
+    if (getTravelCommentDB() === undefined) setTravelCommentDB();
+    
+    let db = getTravelCommentDB()
+    
+    if(db) {
+        
+         let allComment = JSON.parse(getTravelCommentDB());        // DB에 있는 장소
+
+         if (allComment[spot]) {
+
+
+            for( let i = 0; i < allComment[spot].length ; i++){     // 긴존 작성자가 중복으로 입력하는지 필터링
+
+                if(allComment[spot][i].id === newComment.id) {
+                    alert('중복')
+                    return
+                }
+            }
+
+            allComment[spot].push(newComment);
+
+        } else {
+
+            allComment[spot] = [];                                  // 새로운 장소
+            allComment[spot].push(newComment);
+
+        }
+
+        localStorage.setItem(COMMENT_DB_IN_LOCALSTORAGE, JSON.stringify(allComment));
+
+    } else {
+
+        let myComment = {};
+        myComment[spot] =[newComment];
+        localStorage.setItem(COMMENT_DB_IN_LOCALSTORAGE, JSON.stringify(myComment));
+    }
+
+    
+
+}
+
+
 
 export const getAllTravelCommentDB = () => {
     console.log('getAllTravelCommentDB()');
+    
+    if (getTravelCommentDB()) {
 
-    return JSON.parse(getTravelCommentDB());
+        return JSON.parse(getTravelCommentDB());
+
+    }
+
+    return 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 export const getMyTravelComment = (uId) => {
     console.log('getMyTravelCommentDB()');
