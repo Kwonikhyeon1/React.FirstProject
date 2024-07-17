@@ -1761,7 +1761,9 @@ export const findSpot = (spot) => {
 export const getCommentDB = (title) => {
     console.log('getCommentDB()');
     console.log('getCommentDB() title ==> ', title);
-    let commentDB = JSON.parse(localStorage.getItem('commentDB'));
+    let commentDB = JSON.parse(localStorage.getItem('COMMENT_DB_IN_LOCALSTORAGE'));
+
+    if(commentDB){
 
     if (commentDB[title] === undefined) {
         return [];
@@ -1769,15 +1771,19 @@ export const getCommentDB = (title) => {
 
     // console.log(commentDB[title]);
     return commentDB[title];
-
+}
+return [];
 }
 
 export const getCommentRank = (spot) => {
     console.log('getCommentRank()');
 
-    let commentDB = JSON.parse(localStorage.getItem('commentDB'));
-
     let strRank = '';
+
+    let commentDB = JSON.parse(localStorage.getItem('COMMENT_DB_IN_LOCALSTORAGE'));
+
+    if (commentDB){
+    
 
     if (commentDB[spot] === undefined) {
 
@@ -1799,6 +1805,8 @@ export const getCommentRank = (spot) => {
         for (let i = 0; i< 5-rank; i++)
             strRank += '☆';
     }
+}
+    strRank = '☆☆☆☆☆';
     return strRank;
 
 }
@@ -1829,7 +1837,7 @@ export const dispRank = (cntVal) => {
 export const getComment = (spot) => {
     console.log('getComment())');
 
-    let commentDB = JSON.parse(localStorage.getItem('commentDB'));
+    let commentDB = JSON.parse(localStorage.getItem('COMMENT_DB_IN_LOCALSTORAGE'));
 
     let comments = [];
     for (let i = 0; i < commentDB[spot].length; i++)
