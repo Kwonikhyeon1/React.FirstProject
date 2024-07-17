@@ -69,11 +69,9 @@ export const getTravelCommentDB = () => {
 export const setTravelCommentDB = (comments) => {
     console.log('[MemberUtils] setTravelCommentDB()');
 
-    localStorage.setItem(COMMENT_DB_IN_LOCALSTORAGE, JSON.stringify(comments));
+    localStorage.setItem(COMMENT_DB_IN_LOCALSTORAGE, '{}');
 
 }
-
-
 
 
 

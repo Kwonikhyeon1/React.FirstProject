@@ -7,7 +7,7 @@ import SignIn from "../member/SignIn.jsx";
 import SignUp from "../member/SignUp.jsx";
 import Modify from "../member/Modify.jsx";
 import SubPage from "../sub/SubPage.jsx"
-import CommentWrite from'../comment/CommenWritet.jsx'
+import CommentWrite from'../comment/CommentWrite.jsx'
 import Main from'../main/main.jsx'                                  // main page
 import ScrollToTop from "./ScrollToTop.js";
 
@@ -33,7 +33,15 @@ const Home = () => {
     const param = useParams();
     useEffect(() => {
 
-        setIsSignIned(isSignIned);
+        // setIsSignIned(isSignIned);
+
+        if (localStorage.getItem('loginedSessionID') === null) {
+            setIsSignIned(false);
+            
+        } else {
+            setIsSignIned(true);
+
+        }
 
         initTravelDB();
 

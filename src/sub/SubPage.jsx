@@ -3,8 +3,8 @@ import './style.css'
 import { useParams } from "react-router-dom";
 import  { getAllAres, getAllDBJobj, getAllSpotArea, initTravelDB, findSpot, getCommentDB  } from '../main/travelDB.js'
 import GoogleMap from './GoogleMap.tsx'
-import CommentWrite from '../comment/CommenWritet.jsx'
-import CommentList from '../main/CommentList.jsx'
+import CommentWrite from '../comment/CommentWrite.jsx'
+import CommentList from '../comment/CommentList.jsx'
 import '../main/Top.css'
 import Top from '../main/Top.jsx'
 
