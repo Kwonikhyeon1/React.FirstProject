@@ -1815,7 +1815,8 @@ export const getCommentRank = (spot) => {
 
     }
 
-
+    strRank = '☆☆☆☆☆';
+    return strRank;
 }
     
 
