@@ -12,6 +12,7 @@ body {
   img {
     /* img(인라인 요소) 하단에 Baseline 공백을 제거 */
     display: block;
+    margin-top: 10px;
   }
   li {
     list-style: none;
@@ -83,7 +84,7 @@ footer {
     /* border-top: 1px solid #333; */
   }
   footer .inner {
-     padding-top: 30px;
+     padding-top: 80px;
      padding-bottom:30px;
   }
   footer .menu {
@@ -137,7 +138,7 @@ footer {
     margin-right: 0;
   } */
   footer .info {
-    margin-top: 25px;
+    margin-top: 35px;
     text-align: center;
   }
   footer .info span {
@@ -155,7 +156,7 @@ footer {
     margin-top: 2px;
   }
   footer .logo {
-    margin: 20px auto 0;
+    margin: 30px auto;
     width: 250px;
     height: 50px;
   }

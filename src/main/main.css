@@ -39,6 +39,7 @@
     min-height: 135px;
     border-bottom: 1px solid #aaa;
     border-radius: 7px 7px 0 0;
+    margin-top: -5px;
 }
 
 #Main div.spot-title {

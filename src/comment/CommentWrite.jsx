@@ -4,6 +4,8 @@ import './index.css';
 import { getLoginedSessionID } from '../member/session.js';
 import { getAllTravelCommentDB, addTravelCommentDB } from './comment.js';
 import CommentStar from './CommentStar.jsx';
+import { useNavigate } from "react-router-dom";
+
 
 
 const CommentWrite = (props) => {
@@ -11,7 +13,8 @@ const CommentWrite = (props) => {
  const [comment, setComment] = useState('');
  const [rank, setRank] = useState(0);
  const [spot, setSpot] = useState(props.spot);
-
+ const navigate = useNavigate();
+ 
   useEffect(() => {
 
   }, []);
@@ -20,6 +23,8 @@ const CommentWrite = (props) => {
   const commentTxtClickHandler = () => {
     if (getLoginedSessionID() === '') {
       alert('로그인 후 이용해 주세요.');
+      navigate('/signin')
+      return;
     }
   };
 
@@ -27,7 +32,16 @@ const CommentWrite = (props) => {
     setComment(e.target.value);
   };
 
+
+  
   const commentBtnClickHandler = () => {
+
+    if (getLoginedSessionID() === '') {
+      alert('로그인 후 이용해 주세요.');
+      navigate('/signin')
+      return;
+    }
+
     if (comment === '') {
       alert('장소와 코멘트를 작성해 주세요.');
       return;

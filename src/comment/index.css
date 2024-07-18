@@ -1,6 +1,7 @@
 #wrap {
     text-align: center;
     margin: 0 auto;
+    
 }
 #wrap .inner {
     
@@ -11,6 +12,7 @@
     border: none;
     border-bottom: 1px solid #dadada;
     box-shadow: 10px;
+    margin-top: 50px;
 }
 #wrap .inner .comment_txt:hover {
     outline: none;
@@ -21,32 +23,20 @@
 }
 
 /* 별점 CSS */
-.star_score { 
-    width: 100px;
-    position: relative;
-    top:20px;
-    left: 22%;
-    margin-top:30px;
-    margin-bottom: 20px;
+.star_score {
+    margin-top: 30px;
     list-style: none;
-    display: flex;
-    
+    background-color: orange;
+    width: 100%;
+    position: relative;
 }
 
-.star_score {
-    margin-top:30px;
-    margin-bottom: 40px;
-    list-style: none;
-    display: flex;
-    position: relative;
-}
 .star_score .inner {
-    width: 50px;
-    display: flex; 
+    display: flex;
     position: absolute;
-    left: 22%;
+    left: 21%;
 }
+
 .star_score .inner li {
     font-size: 25px;
-    left: 0;
 }
