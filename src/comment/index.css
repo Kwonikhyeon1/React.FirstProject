@@ -136,7 +136,10 @@
 
 
 
-
-
-
-
+.cmdDeleteBtn {
+    margin-top: 10px;
+    width: 60px;
+    height: 30px;
+    border-radius: 10px;
+    border: 1px solid #dadada;
+}

@@ -54,7 +54,7 @@ const SubPage = (props) =>{
                 {
                     review
                     ?
-                    <CommentList spot={param.spotname} flag={flag} review={review}/>
+                    <CommentList spot={param.spotname} flag={flag} setFlag={setFlag} review={review}/>
                     :
                     null
                 }

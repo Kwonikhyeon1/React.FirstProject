@@ -179,6 +179,39 @@ export const getSpotAllCommentDB = (spot, id='') => {
 }
 
 
+export const deleteMycomment = (spot, id) => {
+
+    console.log('deleteMycomment()');
+    
+    
+    if (getTravelCommentDB()) {
+      
+       let allComment = JSON.parse(getTravelCommentDB())
+
+        let allSpotComment = allComment[spot]
+
+        if (allSpotComment) {
+
+            let myComment = '';
+            for (let i = 0; i < allSpotComment.length; i++) {
+
+                if (allSpotComment[i].uId === id) {
+
+                    myComment = allSpotComment.splice(i,1);
+
+                    break;
+                }
+            }
+
+        }
+
+        allComment[spot] = allSpotComment;
+
+        localStorage.setItem(COMMENT_DB_IN_LOCALSTORAGE, JSON.stringify(allComment));
+    }
+
+    return 
+}
 
 
 
