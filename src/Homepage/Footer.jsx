@@ -15,11 +15,11 @@ const Footer = () => {
           <li><Link to="/email-collection-opt-out">전자우편무단수집거부</Link></li>
         </ul>
 
-        <div className="btn-group">
+        {/* <div className="btn-group">
           <Link to="https://ujb.greenart.co.kr/campus/campusLocation?cam_idx=17" className="btn btn--white">찾아오시는 길</Link>
           <Link to="/qna" className="btn btn--white">Q&A</Link>
           <Link to="/site-map" className="btn btn--white">사이트 맵</Link>
-        </div>
+        </div> */}
 
         <div className="info">
           <span>사업자등록번호 201-81-367548</span>

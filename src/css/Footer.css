@@ -83,7 +83,8 @@ footer {
     /* border-top: 1px solid #333; */
   }
   footer .inner {
-     padding-bottom:10px;
+     padding-top: 30px;
+     padding-bottom:30px;
   }
   footer .menu {
     display: flex;
@@ -136,7 +137,7 @@ footer {
     margin-right: 0;
   } */
   footer .info {
-    margin-top: 15px;
+    margin-top: 25px;
     text-align: center;
   }
   footer .info span {
@@ -151,7 +152,7 @@ footer {
     color: #999;
     font-size: 12px;
     text-align: center;
-    margin-top: 12px;
+    margin-top: 2px;
   }
   footer .logo {
     margin: 20px auto 0;

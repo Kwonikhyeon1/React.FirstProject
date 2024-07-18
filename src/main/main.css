@@ -6,7 +6,9 @@
 #Main {
     width: 1000px;
     top: 10px;
-    margin: 30px auto;
+    margin: 0px auto;
+    margin-top: 50px;
+    margin-bottom: 70px;
 }
 
 #Main ul.bot-menu-one,

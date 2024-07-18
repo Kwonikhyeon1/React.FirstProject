@@ -23,16 +23,16 @@ const Bg = () => {
         <img src="https://www/wp-content/uploads/main-01.jpg" alt="dokdo" className="bg_img" />
       </SwiperSlide> */}
       <SwiperSlide className="bg_img">
-        <img src="https://www.ecobus.co.kr/wp-content/uploads/main-01.jpg" alt="seoul" className="bg_img" />
+        <img src="https://www.ecobus.co.kr/wp-content/uploads/main-01.jpg" width="100%" align="bottom" alt="seoul" className="bg_img" />
       </SwiperSlide>
       <SwiperSlide className="bg_img">
-        <img src="https://www.ecobus.co.kr/wp-content/uploads/main-02.jpg" alt="jeju" className="bg_img" />
+        <img src="https://www.ecobus.co.kr/wp-content/uploads/main-02.jpg" width="100%" align="bottom" alt="jeju" className="bg_img" />
       </SwiperSlide>
       <SwiperSlide className="bg_img">
-        <img src="https://www.ecobus.co.kr/wp-content/uploads/main-03.jpg" alt="maple" className="bg_img" />
+        <img src="https://www.ecobus.co.kr/wp-content/uploads/main-03.jpg" width="100%" align="bottom" alt="maple" className="bg_img" />
       </SwiperSlide>
       <SwiperSlide className="bg_img">
-        <img src="https://www.ecobus.co.kr/wp-content/uploads/main-04.jpg" alt="maple" className="bg_img" />
+        <img src="https://www.ecobus.co.kr/wp-content/uploads/main-04.jpg" width="100%" align="bottom" alt="maple" className="bg_img" />
       </SwiperSlide>
     </Swiper>
     </>
