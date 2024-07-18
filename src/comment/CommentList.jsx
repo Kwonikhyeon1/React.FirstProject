@@ -40,10 +40,10 @@ const CommentList = (props) => {
                         <div className="id">{e.uId.substr(0,1)}</div>
                         <input className='fullId' type='hidden' value={`${e.uId}`}/>
                         <input className="mention" type="text" readOnly onClick={myMenModify} value={`${e.comment}`}/>
-                       <div> <div className="modDate">{e.modDate.split(' ')[0]}</div>
+                       <div>
+                        <div className="modDate">{e.modDate.split(' ')[0]}</div>
                         <div className="rank">{dispRank(e.rank)}</div>
-                      </div>
-                      </div>
+                      </div></div>
                       </>
                   ) 
                   
