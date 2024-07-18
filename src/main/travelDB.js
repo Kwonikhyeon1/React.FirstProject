@@ -1,3 +1,5 @@
+const COMMENT_DB_IN_LOCALSTORAGE = 'travelCommentDB';
+
 let travelDBJson  =  {
     "국립중앙박물관":{
             "title" : "국립중앙박물관",
@@ -1780,7 +1782,7 @@ export const getCommentRank = (spot) => {
 
     let strRank = '';
 
-    let commentDB = JSON.parse(localStorage.getItem('COMMENT_DB_IN_LOCALSTORAGE'));
+    let commentDB = JSON.parse(localStorage.getItem(COMMENT_DB_IN_LOCALSTORAGE));
 
     if (commentDB){
     
@@ -1792,24 +1794,32 @@ export const getCommentRank = (spot) => {
     } else {
 
         let sumRank = 0;
-        for (let i = 0; i < commentDB[spot].length; i++)
-            sumRank += Number(commentDB[spot][i].rank)
-
+        
+        for (let i = 0; i < commentDB[spot].length; i++) {
+            
+            sumRank += commentDB[spot][i].rank
+        }
+        
         let rank = Math.floor(sumRank/commentDB[spot].length)
 
         rank === 0 ? rank = 1 : rank=rank;
 
+
         for (let i = 0; i < rank; i++)
             strRank += '★';
-        
-        for (let i = 0; i< 5-rank; i++)
+            
+        for (let i = rank; i < 5; i++)
             strRank += '☆';
+    }      
+        return strRank;
+
     }
-}
-    strRank = '☆☆☆☆☆';
-    return strRank;
+
 
 }
+    
+
+
 
 
 export const dispRank = (cntVal) => {

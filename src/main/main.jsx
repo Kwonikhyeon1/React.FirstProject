@@ -5,6 +5,7 @@ import Top from '../main/Top.jsx'
 import {  useParams } from 'react-router-dom'
 import ImgNoChange from '../main/ImgNoChange.jsx'
 
+
 import  { getAllAres, getAllDBJobj, getAllSpotArea, initTravelDB, findSpot, getCommentRank  } from '../main/travelDB.js'
 
 const Main = (props) => {

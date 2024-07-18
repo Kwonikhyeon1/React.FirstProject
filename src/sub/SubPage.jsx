@@ -1,38 +1,40 @@
 import React, { useEffect, useState } from "react";
 import './style.css'
 import { useParams } from "react-router-dom";
-import  { getAllAres, getAllDBJobj, getAllSpotArea, initTravelDB, findSpot, getCommentDB  } from '../main/travelDB.js'
 import GoogleMap from './GoogleMap.tsx'
 import CommentWrite from '../comment/CommentWrite.jsx'
 import CommentList from '../comment/CommentList.jsx'
+import {getSpotAllCommentDB} from '../comment/comment.js'
 import '../main/Top.css'
 import Top from '../main/Top.jsx'
+import { getLoginedSessionID } from "../member/session.js";
 
 
 const SubPage = (props) =>{
 
     const param = useParams();
-    const [review, setReview] = useState('');
+    //const [review, setReview] = useState(getSpotAllCommentDB(param.spotname, getLoginedSessionID()));
+    const [review, setReview] = useState(getSpotAllCommentDB(param.spotname, getLoginedSessionID()));
     const [lat, setLat] = useState();
     const [lng, setLng] = useState();
+    const [flag, setFlag] = useState(false);
     
     
 
     useEffect(() => {
         console.log('sub page landing')
-        // console.log(props.allDB)
-        // console.log('sub page ====> ', props.passImg);
-        
-        // console.log(param.spotname);
-        console.log('getCommentDB(param.spotname)');
-        console.log(getCommentDB(param.spotname));
-        setReview(getCommentDB(param.spotname));
+        console.log(getSpotAllCommentDB(param.spotname))
+        setReview(getSpotAllCommentDB(param.spotname, getLoginedSessionID()))
+        //setReview(getSpotAllCommentDB(param.spotname));
         setLat(props.allDB[param.spotname].geo_loc.split(',')[0]);
         setLng(props.allDB[param.spotname].geo_loc.split(',')[1]);
-        console.log( 'subpage =>  ',props.isSiginIned);
-        
+        console.log( 'subpage =>  ', getSpotAllCommentDB(param.spotname));
+        console.log( 'subpage review=>  ',review);
+        //let reviewList = getSpotAllCommentDB(param.spotname)
+        //setReview(reviewList)
+        console.log(review)
 
-    },[])
+    },[flag])
 
     return(
         
@@ -47,12 +49,12 @@ const SubPage = (props) =>{
                 </div>
                 <GoogleMap className="map" lat={lat} lng={lng}/>
                 <br />
-                <CommentWrite spot={param.spotname}/>
+                <CommentWrite spot={param.spotname}  flag={flag} setFlag={setFlag}/>
                 <br />
                 {
-                    review.length
+                    review
                     ?
-                    <CommentList spot={param.spotname}/>
+                    <CommentList spot={param.spotname} flag={flag} review={review}/>
                     :
                     null
                 }

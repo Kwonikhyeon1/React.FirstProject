@@ -98,11 +98,22 @@ export const addTravelCommentDB = (spot, newComment) => {
 
          if (allComment[spot]) {
 
+            
+            let allSpotComment = allComment[spot];
+            for( let i = 0; i < allSpotComment.length ; i++){     // 기존 작성자가 중복으로 입력하는지 필터링
 
-            for( let i = 0; i < allComment[spot].length ; i++){     // 긴존 작성자가 중복으로 입력하는지 필터링
+                if(allSpotComment[i].uId === newComment.uId) {
+                    let txt = `작성일 : ${allSpotComment[i].modDate}` + '\n' + 
+                              `별   점 : ${allSpotComment[i].rank}` + '\n' + 
+                              `내   용 : ${allSpotComment[i].comment}` + '\n' + 
+                               
+                               '\n이미 작성하신 글이 있습니다. 대체하시겠습니까?'
+                    let delYes = window.confirm(txt);
 
-                if(allComment[spot][i].id === newComment.id) {
-                    alert('중복')
+                    if(delYes) {
+                        allSpotComment.splice(i, 1);
+                        break
+                    }
                     return
                 }
             }
@@ -131,13 +142,37 @@ export const addTravelCommentDB = (spot, newComment) => {
 
 
 
-export const getAllTravelCommentDB = () => {
-    console.log('getAllTravelCommentDB()');
+export const getSpotAllCommentDB = (spot, id='') => {
+    console.log('getSpotAllCommentDB()');
     
+    console.log(getTravelCommentDB())
     if (getTravelCommentDB()) {
+       
+       let allComment = JSON.parse(getTravelCommentDB())
 
-        return JSON.parse(getTravelCommentDB());
+        let allSpotComment = allComment[spot]
 
+        if (allSpotComment) {
+
+            let myComment = '';
+            for (let i = 0; i < allSpotComment.length; i++) {
+
+                if (allSpotComment[i].uId === id) {
+
+                    myComment = allSpotComment.splice(i,1);
+
+                    break;
+                }
+            }
+
+            if(myComment !== '') {
+                
+                allSpotComment.push(myComment[0])
+
+            }
+
+            return allSpotComment.reverse()
+        }
     }
 
     return 
@@ -167,15 +202,6 @@ export const getMyTravelComment = (uId) => {
     return myComment;
 
 }
-export const setMyTravelComment = (uId, myComment) => {
-    console.log('setMyTravelComment()');
-
-    let comments = JSON.parse(getTravelCommentDB());
-    comments[uId] = myComment;
-
-    setTravelCommentDB(comments);
-}
-
 
 
 
