@@ -43,7 +43,7 @@ const CommentWrite = (props) => {
     }
 
     if (comment === '') {
-      alert('장소와 코멘트를 작성해 주세요.');
+      alert('별점과 코멘트를 작성해 주세요.');
       return;
     }
 
@@ -76,7 +76,7 @@ const CommentWrite = (props) => {
           onClick={commentTxtClickHandler}
           onChange={commentTxtChangeHandler}
           className="comment_txt"
-          placeholder="로그인 후 소중한 글 작성 부탁드립니다."
+          placeholder={!getLoginedSessionID() ? '로그인 후 소중한 글 작성 부탁드립니다.' : '별점과 리뷰를 남겨주세요.' }
         />
         <button onClick={commentBtnClickHandler} className="comment_btn">
           작성
