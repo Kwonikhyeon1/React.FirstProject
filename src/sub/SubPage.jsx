@@ -22,6 +22,10 @@ const SubPage = (props) =>{
     
 
     useEffect(() => {
+
+        document.getElementsByName(props.allDB[param.spotname].area)[0].setAttribute('style', 'background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);')
+        props.setCurMenu(document.getElementsByName(props.allDB[param.spotname].area)[0].getAttribute('name'));
+        
         console.log('sub page landing')
         console.log(getSpotAllCommentDB(param.spotname))
         setReview(getSpotAllCommentDB(param.spotname, getLoginedSessionID()))
@@ -33,6 +37,8 @@ const SubPage = (props) =>{
         //let reviewList = getSpotAllCommentDB(param.spotname)
         //setReview(reviewList)
         console.log(review)
+        return
+        
 
     },[flag, props.passImg])
 
