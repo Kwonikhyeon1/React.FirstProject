@@ -34,7 +34,23 @@ const SubPage = (props) =>{
         //setReview(reviewList)
         console.log(review)
 
-    },[flag])
+    },[flag, props.passImg])
+
+    const changeImg = (e) => {
+        let iNo = Number(props.passImg);
+        console.log(iNo);
+
+        if (e.target.className === "left_arrow") {
+            iNo === 0 ? iNo = 0 : iNo -= 1;
+            iNo === 0 ? e.target.style.display = 'none' : e.target.style.display = '' 
+            e.target.nextElementSibling.style.display = '';
+        } else {
+            iNo === 2 ? iNo = 2 : iNo += 1;
+            iNo === 2 ? e.target.style.display = 'none' : e.target.style.display = '' 
+            e.target.previousElementSibling.style.display = '';
+        }
+        props.setPassImg(iNo);
+    }
 
     return(
         
@@ -42,7 +58,13 @@ const SubPage = (props) =>{
             
                 <h1>{param.spotname}</h1>
                 <h4>{props.allDB[param.spotname].address}</h4>
-                <img className="sub_img" src={props.allDB[param.spotname].img_src[Number(props.passImg)]} /> 
+                <div className="img_wrap">
+                    <img className="sub_img" src={props.allDB[param.spotname].img_src[Number(props.passImg)]} /> 
+                    <div className="left_arrow" onClick={changeImg}
+                        style={props.passImg === '0' ? {display : 'none'} : {display:''}}>{'<'}</div>
+                    <div className="right_arrow"  onClick={changeImg}
+                        style={props.passImg === '2' ? {display : 'none'} : {display:''}}>{'>'}</div>
+                </div>
                 <div className="text_wrap">
                     <h3>상세정보</h3>
                     <p>{props.allDB[param.spotname].descript}</p>
