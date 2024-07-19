@@ -28,7 +28,7 @@ const Home = () => {
     const [passImg, setPassImg] = useState('0')
 
     const [allArea, setAllArea] = useState();
-    const [allSpot, setAllSpot] = useState();
+    const [allSpot, setAllSpot] = useState([]);
 
     const param = useParams();
     useEffect(() => {
@@ -45,7 +45,7 @@ const Home = () => {
 
         initTravelDB();
 
-        //setAllDB(getAllDBJobj());      // Object
+        // setAllDB(getAllDBJobj());      // Object
         // setAllArea(getAllAres());      // Array
        
 

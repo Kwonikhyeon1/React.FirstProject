@@ -1727,20 +1727,17 @@ export const getAllSpotArea = (area='서울', spots='All') => {
     console.log('getAllSpotArea()');
 
     let allDB = getAllDBJobj();
+    
     let keys = Object.keys(allDB);
 
     let allSpot = [];
 
-    //console.log('    >>>>>>   ', spots.split(','))
-
-    console.log('[getAllSpotArea] --> ', spots.split(','));
     if (area === '서치')  return spots.split(',');
  
-    // console.log('---> ', allArea)
     for (let i = 0; i < keys.length; i++) {
         if (allDB[keys[i]].area === area ) allSpot.push(keys[i]);
     }
-
+    console.log ('[getAllSpotArea] return --> ', allSpot)
     return allSpot;
 }
 

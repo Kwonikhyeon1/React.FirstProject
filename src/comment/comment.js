@@ -19,18 +19,6 @@ export const setTravelInfoMemberDB = (mems) => {
     localStorage.setItem(MEMBER_DB_IN_LOCALSTORAGE, JSON.stringify(mems));
 
 }
-// //로그인 세션 저장소
-// export const getLoginedSessionID = () => {
-//     console.log('getLoginedSessionID()');
-
-//     return loginedSessionID;
-// }
-
-// export const setLoginedSessionID = (id) => {
-//     console.log('setLoginedSessionID()');
-
-//     loginedSessionID =id;
-// }
 
 
 //// 로그인시 확인 기능 ///
@@ -100,21 +88,12 @@ export const addTravelCommentDB = (spot, newComment) => {
 
             
             let allSpotComment = allComment[spot];
-            for( let i = 0; i < allSpotComment.length ; i++){     // 기존 작성자가 중복으로 입력하는지 필터링
+            for( let i = 0; i < allSpotComment.length ; i++){     
 
                 if(allSpotComment[i].uId === newComment.uId) {
-                    let txt = `작성일 : ${allSpotComment[i].modDate}` + '\n' + 
-                              `별   점 : ${allSpotComment[i].rank}` + '\n' + 
-                              `내   용 : ${allSpotComment[i].comment}` + '\n' + 
-                               
-                               '\n이미 작성하신 글이 있습니다. 대체하시겠습니까?'
-                    let delYes = window.confirm(txt);
-
-                    if(delYes) {
+                    
                         allSpotComment.splice(i, 1);
                         break
-                    }
-                    return
                 }
             }
 
@@ -179,7 +158,7 @@ export const getSpotAllCommentDB = (spot, id='') => {
 }
 
 
-export const deleteMycomment = (spot, id) => {
+export const deleteMyComment = (spot, id) => {
 
     console.log('deleteMycomment()');
     
@@ -205,7 +184,10 @@ export const deleteMycomment = (spot, id) => {
 
         }
 
-        allComment[spot] = allSpotComment;
+            if (allSpotComment.length === 0)
+            delete allComment[spot];
+        
+
 
         localStorage.setItem(COMMENT_DB_IN_LOCALSTORAGE, JSON.stringify(allComment));
     }

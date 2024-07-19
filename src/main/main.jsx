@@ -11,25 +11,21 @@ import  { getAllAres, getAllDBJobj, getAllSpotArea, initTravelDB, findSpot, getC
 const Main = (props) => {
 
     const param = useParams();
-
-    // const [allDB, setAllDB] = useState();
-    // const [allArea, setAllArea] = useState();
-    // const [allSpot, setAllSpot] = useState();
-    //const [curImgNo, setCurImgNo] = useState(0);
     const [curSpot, setCurSpot] = useState('');
  
-
-
     useEffect(() => {
 
         // initTravelDB();
+        
+        props.setAllDB(getAllDBJobj());   
+        props.setAllArea( getAllAres());      // Array
 
-        props.setAllDB(getAllDBJobj());      // Object
-
-        props.setAllArea(getAllAres());      // Array
         // setAllSpot(getAllSpotArea(param.curMenu, param.result));  // Array
         props.setAllSpot(getAllSpotArea(param.curMenu, param.result));  // Array
-        console.log(' -- parameter --> ',param.curMenu, param.result);
+
+        console.log('[main] -> props.allDB ->', props.allDB)
+        console.log('[main] -> props.allArea ->', props.allArea)
+        console.log('[main] -> props.allSpot ->', props.allSpot)
 
         if(props.curMenu !== undefined && props.curMenu === param.curMenu){
             document.getElementsByName(props.curMenu)[0].style.backgroundColor='#fff';
@@ -38,6 +34,7 @@ const Main = (props) => {
             document.getElementsByName(props.curMenu)[0].style.backgroundColor='';
             document.getElementsByName(props.curMenu)[0].style.color='';
         }
+
                 
     },[props.menuFlag])
 
@@ -57,7 +54,7 @@ const Main = (props) => {
         <div id="Main">
             <ul className='bot-menu-one'>
             {
-                props.allSpot !== undefined
+                props.allSpot
                 ?
                 props.allSpot.map((item, idx) =>
                 {

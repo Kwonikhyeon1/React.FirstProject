@@ -134,12 +134,87 @@
     text-align: center;
 }
 
-
-
-.cmdDeleteBtn {
+.cmdModifyBtn {
     margin-top: 10px;
-    width: 60px;
+    margin-right: 3px;
+    width: 40px;
     height: 30px;
     border-radius: 10px;
     border: 1px solid #dadada;
 }
+
+
+.cmdDeleteBtn {
+    margin-top: 10px;
+    width: 40px;
+    height: 30px;
+    border-radius: 10px;
+    border: 1px solid #dadada;
+}
+
+
+
+#modal-wrap {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  
+
+.modal-box {
+    width: 900px;
+    height: 170px;
+    background-color: #fff;
+    border-radius: 30px;
+}
+
+
+.modal-box .star_score {
+    margin-left: 30px;
+    margin-top: 10px;
+}
+
+
+.modal-box input {
+    width: 90%;
+    margin-top: 45px;
+    line-height: 50px;
+    border-radius: 10px;
+    border: 1px solid #dadada;
+    font-size: 1.3em;
+    padding: 0 5px;
+}
+
+.modal-box button.mod-modify {
+    width: 100px;
+    height: 30px;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-right: 10px;
+    border: 1px solid #dadada;
+}
+
+.modal-box button.mod-modify:hover {
+    background-color: #d8d8d8;
+}
+
+.modal-box button.mod-cancel {
+    width: 100px;
+    height: 30px;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-right: 10px;
+    border: 1px solid #dadada;
+}
+
+.modal-box button.mod-cancel:hover {
+    background-color: #d8d8d8;
+}
+
+  
