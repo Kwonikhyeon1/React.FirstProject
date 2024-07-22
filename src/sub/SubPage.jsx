@@ -45,6 +45,17 @@ const SubPage = (props) =>{
         props.setPassImg(iNo);
     }
 
+    const checkIsMyComment = () => {
+        if (review){
+            for (let i = 0; i < review.length; i++) {
+                if (review[i].uId === getLoginedSessionID()) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }    
+
     return(
         
         <div id="sub_wrap">
@@ -64,7 +75,13 @@ const SubPage = (props) =>{
                 </div>
                 <GoogleMap className="map" lat={lat} lng={lng}/>
                 <br />
-                <CommentWrite spot={param.spotname}  flag={flag} setFlag={setFlag}/>
+                {
+                    checkIsMyComment()
+                    ?
+                    null
+                    :
+                    <CommentWrite spot={param.spotname}  flag={flag} setFlag={setFlag}/>
+                }
                 <br />
                 {
                     review

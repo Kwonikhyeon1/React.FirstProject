@@ -73,6 +73,7 @@ const Menubar = (props) => {
 
         setLoginedSessionID();
         props.setIsSignIned(false);
+        goHome();
         
     }
 
