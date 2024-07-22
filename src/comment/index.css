@@ -3,9 +3,7 @@
     margin: 0 auto;
     
 }
-#wrap .inner {
-    
-}
+
 #wrap .inner .comment_txt {
     width: 89%;
     height: 100px;
@@ -56,11 +54,6 @@
 
 
 /* 리스트 작성 */
-
-#list-wrap {
-
-}
-
 .list-item {
     margin-bottom: 15px;
     border-bottom: 1px solid #eee;
@@ -216,5 +209,3 @@
 .modal-box button.mod-cancel:hover {
     background-color: #d8d8d8;
 }
-
-  

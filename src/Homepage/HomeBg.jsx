@@ -1,12 +1,13 @@
 import React from 'react';
+//Import required modules
 import { Swiper, SwiperSlide } from 'swiper/react'; //라이브러리에서 swiper기능 import
+import { Navigation, Autoplay } from 'swiper/modules' //모듈에서 props import!
 //Import Swiper Css
 import 'swiper/css'; // Swiper의 기본 스타일 임포트
 import '../css/HomeBg.css'; // 커스텀 CSS 파일 임포트
-//Import required modules
-import {Navigation, Autoplay} from 'swiper/modules' //모듈에서 props import!
 
 const Bg = () => {
+
   return (
     <>
     <Swiper
@@ -19,7 +20,7 @@ const Bg = () => {
       className="swiper-container"
       modules={[Autoplay, Navigation]} //모듈명 설정!!!!!!!!!! 내부함수로 해줘야 적용됨!!!!!!!
     >
-       {/* <SwiperSlide className="bg_img">
+      {/* <SwiperSlide className="bg_img">
         <img src="https://www/wp-content/uploads/main-01.jpg" alt="dokdo" className="bg_img" />
       </SwiperSlide> */}
       <SwiperSlide className="bg_img">
@@ -38,6 +39,7 @@ const Bg = () => {
     </>
   );
 };
+
 export default Bg;
 
 

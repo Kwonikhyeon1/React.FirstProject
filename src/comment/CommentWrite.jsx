@@ -1,24 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { getDateTime } from './comment.js';
-import './index.css';
 import { getLoginedSessionID } from '../member/session.js';
-import { getAllTravelCommentDB, addTravelCommentDB } from './comment.js';
-import CommentStar from './CommentStar.jsx';
+import { addTravelCommentDB } from './comment.js';
 import { useNavigate } from "react-router-dom";
-
+import './index.css';
+import CommentStar from './CommentStar.jsx';
 
 
 const CommentWrite = (props) => {
- // 상태 변수 설정
- const [comment, setComment] = useState('');
- const [rank, setRank] = useState(0);
- const [spot, setSpot] = useState(props.spot);
- const navigate = useNavigate();
- 
-  useEffect(() => {
 
-  }, []);
-
+  // 상태 변수 설정
+  const [comment, setComment] = useState('');
+  const [rank, setRank] = useState(0);
+  const [spot, setSpot] = useState(props.spot);
+  const navigate = useNavigate();
+  
   // 핸들러
   const commentTxtClickHandler = () => {
     if (getLoginedSessionID() === '') {
@@ -32,8 +28,6 @@ const CommentWrite = (props) => {
     setComment(e.target.value);
   };
 
-
-  
   const commentBtnClickHandler = () => {
 
     if (getLoginedSessionID() === '') {

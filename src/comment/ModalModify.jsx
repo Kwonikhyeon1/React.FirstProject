@@ -11,6 +11,8 @@ const ModalModify = (props) => {
         props.setComment(e.target.value)
 
     }
+
+
     const modifyClickHandler = () => {
 
         let newDate = getDateTime();
@@ -32,13 +34,16 @@ const ModalModify = (props) => {
         document.getElementById('myComment').style.display=''
 
     }
- 
+
+    
     const cancelClickHandler = () => {
         document.getElementById('myComment').style.display=''
         props.setModalOpen(false);
         props.setFlag(!props.flag);
+
     }
 
+    
     return (
         <div id="modal-wrap">
             <div className="modal-box">

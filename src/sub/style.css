@@ -1,7 +1,5 @@
 /* COMMON CSS */
-
 /* /////// SUB PAGE CSS //////////// */
-
 #sub_wrap {
     width: 939px;
     margin: 20px auto;
@@ -9,21 +7,25 @@
     padding: 20px;
 }
 
+
 #sub_wrap h1 {
     text-align: center;
     margin-bottom: 10px;
     color: #242424;
 }
 
+
 #sub_wrap h4 {
     font-weight: 100;
     color: #4e4e4e;
 }
 
+
 #sub_wrap .sub_img {
     margin: 20px 0px;
     border-radius: 10px;
 }
+
 
 #sub_wrap .text_wrap {
     width: 939px;
@@ -32,6 +34,7 @@
     color: #242424;
     margin-bottom: 30px;
 }
+
 
 #sub_wrap .text_wrap p {
     line-height: 26px;
@@ -45,10 +48,12 @@
     padding-bottom: 10px;
 }
 
+
 #sub_wrap .sub_img {
     max-width: 100%;
     min-width: 100%;
 }
+
 
 /* #sub_wrap .map {
     margin: 10px;
@@ -60,6 +65,7 @@
     borderRadius: 10px;
 } */
 
+
 #sub_wrap .input_review {
     margin: 10px;
     padding: 5px;
@@ -67,6 +73,7 @@
     background-color: rgb(250, 250, 190);
     text-align: center;
 }
+
 
 #sub_wrap .review_list {
     margin: 10px;
@@ -81,6 +88,7 @@
     position: relative;
 }
 
+
 div.left_arrow {
     position: absolute;
     top:300px;
@@ -93,6 +101,7 @@ div.left_arrow {
     background-color: rgba(255, 255, 255, .6);
     border-radius: 15px;
 }
+
 
 div.right_arrow {
     position: absolute;
@@ -108,11 +117,7 @@ div.right_arrow {
 }
 
 
-
-
-
 /* ///////MEMBERS CSS//////// */
-
 .sign-up,
 .sign-in,
 .modify {
@@ -135,6 +140,7 @@ div.right_arrow {
     margin-bottom: 10px;
 }
 
+
 .sign-up input.txt-basic, 
 .sign-in input.txt-basic,
 .modify input.txt-basic {
@@ -149,6 +155,7 @@ div.right_arrow {
     box-sizing: border-box;
    
 }
+
 
 .sign-up input.btn-basic,
 .sign-in input.btn-basic,
@@ -193,6 +200,6 @@ div.right_arrow {
 }
 
 
-
-
-.gm-style iframe + div { border:none!important; }
+.gm-style iframe + div {
+    border:none!important; 
+}

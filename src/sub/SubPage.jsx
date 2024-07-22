@@ -1,50 +1,37 @@
 import React, { useEffect, useState } from "react";
-import './style.css'
 import { useParams } from "react-router-dom";
+import { getSpotAllCommentDB } from '../comment/comment.js'
+import { getLoginedSessionID } from "../member/session.js";
 import GoogleMap from './GoogleMap.tsx'
 import CommentWrite from '../comment/CommentWrite.jsx'
 import CommentList from '../comment/CommentList.jsx'
-import {getSpotAllCommentDB} from '../comment/comment.js'
-import '../main/Top.css'
 import Top from '../main/Top.jsx'
-import { getLoginedSessionID } from "../member/session.js";
+import './style.css'
+import '../main/Top.css'
 
 
 const SubPage = (props) =>{
 
     const param = useParams();
-    //const [review, setReview] = useState(getSpotAllCommentDB(param.spotname, getLoginedSessionID()));
     const [review, setReview] = useState(getSpotAllCommentDB(param.spotname, getLoginedSessionID()));
     const [lat, setLat] = useState();
     const [lng, setLng] = useState();
     const [flag, setFlag] = useState(false);
     
-    
-
     useEffect(() => {
 
         document.getElementsByName(props.allDB[param.spotname].area)[0].setAttribute('style', 'background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);')
         props.setCurMenu(document.getElementsByName(props.allDB[param.spotname].area)[0].getAttribute('name'));
         
-        console.log('sub page landing')
-        console.log(getSpotAllCommentDB(param.spotname))
         setReview(getSpotAllCommentDB(param.spotname, getLoginedSessionID()))
-        //setReview(getSpotAllCommentDB(param.spotname));
         setLat(props.allDB[param.spotname].geo_loc.split(',')[0]);
         setLng(props.allDB[param.spotname].geo_loc.split(',')[1]);
-        console.log( 'subpage =>  ', getSpotAllCommentDB(param.spotname));
-        console.log( 'subpage review=>  ',review);
-        //let reviewList = getSpotAllCommentDB(param.spotname)
-        //setReview(reviewList)
-        console.log(review)
-        return
-        
 
     },[flag, props.passImg])
 
-    const changeImg = (e) => {
+    const btnClickEventHandler = (e) => {
+        console.log('[SubPage] btnClickEventHandler');
         let iNo = Number(props.passImg);
-        console.log(iNo);
 
         if (e.target.className === "left_arrow") {
             iNo === 0 ? iNo = 0 : iNo -= 1;
@@ -66,9 +53,9 @@ const SubPage = (props) =>{
                 <h4>{props.allDB[param.spotname].address}</h4>
                 <div className="img_wrap">
                     <img className="sub_img" src={props.allDB[param.spotname].img_src[Number(props.passImg)]} /> 
-                    <div className="left_arrow" onClick={changeImg}
+                    <div className="left_arrow" onClick={btnClickEventHandler}
                         style={props.passImg === '0' ? {display : 'none'} : {display:''}}>{'<'}</div>
-                    <div className="right_arrow"  onClick={changeImg}
+                    <div className="right_arrow"  onClick={btnClickEventHandler}
                         style={props.passImg === '2' ? {display : 'none'} : {display:''}}>{'>'}</div>
                 </div>
                 <div className="text_wrap">

@@ -1654,48 +1654,12 @@ let travelDBJson  =  {
             }
 }
 
-let commentDBJson = {
-    "국립중앙박물관" :
-        [
-            {
-                "id":"dildong",
-                "comment":"멘트 길동",
-                "ragdate":"",
-                "moddate":"",
-                "rank":"1"
-            },
-            {
-                "id":"chanho",
-                "comment":"멘트 찬호",
-                "ragdate":"",
-                "moddate":"",
-                "rank":"2"
-            }
-        ],
-    "경복궁" :
-        [
-            {
-                "id":"gildong",
-                "comment":"멘트 길동",
-                "ragdate":"",
-                "moddate":"",
-                "rank":"3"
-            }
-    
-        ]
-    }
-
-
-
-
 
 export const initTravelDB = () => {
     console.log('initTravelDB()');
 
     if (localStorage.getItem('travelDB') === null) {
-       console.log('initTravelDB -> Insert DB');
        localStorage.setItem('travelDB', JSON.stringify(travelDBJson));
-
     } 
 }
 
@@ -1706,6 +1670,7 @@ export const getAllDBJobj = () => {
     return JSON.parse(localStorage.getItem('travelDB'));
 
 }
+
 
 export const getAllAres = () => {
     console.log('getAllAres()');
@@ -1727,9 +1692,7 @@ export const getAllSpotArea = (area='서울', spots='All') => {
     console.log('getAllSpotArea()');
 
     let allDB = getAllDBJobj();
-    
     let keys = Object.keys(allDB);
-
     let allSpot = [];
 
     if (area === '서치')  return spots.split(',');
@@ -1737,19 +1700,18 @@ export const getAllSpotArea = (area='서울', spots='All') => {
     for (let i = 0; i < keys.length; i++) {
         if (allDB[keys[i]].area === area ) allSpot.push(keys[i]);
     }
-    console.log ('[getAllSpotArea] return --> ', allSpot)
+
     return allSpot;
 }
+
 
 export const findSpot = (spot) => {
     console.log('findSpot()');
 
     let findSpotArry = []
     let allDB = getAllDBJobj();
-    console.log(allDB);
     let keys = Object.keys(allDB);
-    console.log('findSopt() -- >',keys);
-    console.log('findSopt() -- >',spot)
+    
     findSpotArry = keys.filter( e => allDB[e].title.indexOf(spot) > -1)
 
     return findSpotArry
@@ -1759,66 +1721,61 @@ export const findSpot = (spot) => {
 
 export const getCommentDB = (title) => {
     console.log('getCommentDB()');
-    console.log('getCommentDB() title ==> ', title);
     let commentDB = JSON.parse(localStorage.getItem('COMMENT_DB_IN_LOCALSTORAGE'));
 
     if(commentDB){
 
-    if (commentDB[title] === undefined) {
-        return [];
+        if (commentDB[title] === undefined) {
+            return [];
+        }
+
+        return commentDB[title];
+
     }
 
-    // console.log(commentDB[title]);
-    return commentDB[title];
+    return [];
+
 }
-return [];
-}
+
 
 export const getCommentRank = (spot) => {
     console.log('getCommentRank()');
 
     let strRank = '';
-
     let commentDB = JSON.parse(localStorage.getItem(COMMENT_DB_IN_LOCALSTORAGE));
 
     if (commentDB){
-    
+        if (commentDB[spot] === undefined) {
 
-    if (commentDB[spot] === undefined) {
+            strRank = '☆☆☆☆☆';
 
-        strRank = '☆☆☆☆☆';
+        } else {
 
-    } else {
-
-        let sumRank = 0;
-        
-        for (let i = 0; i < commentDB[spot].length; i++) {
+            let sumRank = 0;
             
-            sumRank += commentDB[spot][i].rank
-        }
-        
-        let rank = Math.floor(sumRank/commentDB[spot].length)
-
-        rank === 0 ? rank = 1 : rank=rank;
-
-
-        for (let i = 0; i < rank; i++)
-            strRank += '★';
+            for (let i = 0; i < commentDB[spot].length; i++) {
+                sumRank += commentDB[spot][i].rank
+            }
             
-        for (let i = rank; i < 5; i++)
-            strRank += '☆';
-    }      
+            let rank = Math.floor(sumRank/commentDB[spot].length)
+            rank === 0 ? rank = 1 : rank=rank;
+
+            for (let i = 0; i < rank; i++)
+                strRank += '★';
+                
+            for (let i = rank; i < 5; i++)
+                strRank += '☆';
+        }      
+
         return strRank;
 
     }
 
     strRank = '☆☆☆☆☆';
     return strRank;
+
 }
     
-
-
-
 
 export const dispRank = (cntVal) => {
     console.log('dispRank()');
@@ -1837,6 +1794,7 @@ export const dispRank = (cntVal) => {
         for (let i = 0; i< 5-cntVal; i++)
             strRank += '☆';
     }
+
     return strRank;
 
 }
@@ -1846,8 +1804,8 @@ export const getComment = (spot) => {
     console.log('getComment())');
 
     let commentDB = JSON.parse(localStorage.getItem('COMMENT_DB_IN_LOCALSTORAGE'));
-
     let comments = [];
+    
     for (let i = 0; i < commentDB[spot].length; i++)
         comments.push(commentDB[spot][i])
 

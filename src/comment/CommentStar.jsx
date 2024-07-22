@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { FaStar } from "react-icons/fa";
 import './index.css';
 
@@ -36,6 +36,5 @@ const CommentStar = ({score, setScore}) => {
         </div>
     );
 };
-
 
 export default CommentStar;

@@ -1,5 +1,3 @@
-
-
 ///변수///
 
 export const MEMBER_DB_IN_LOCALSTORAGE = 'travelInfoMemberDB';
@@ -14,6 +12,7 @@ export const getTravelInfoMemberDB = () => {
 
 } 
 
+
 export const setTravelInfoMemberDB = (mems) => {
     console.log('[MemberUtils] setTravelInfoMemberDB()');
     
@@ -23,7 +22,6 @@ export const setTravelInfoMemberDB = (mems) => {
 
 
 //// 로그인시 확인 기능 ///
-
 export const getMyInfo = (uId) => {
     console.log('[MemberUtils] getMyInfo()');
 
@@ -37,6 +35,7 @@ export const getMyInfo = (uId) => {
     return myInfo;
 
 }
+
 
 export const setMyInfo = (uId, myInfo) => {
     console.log('[utils] setMyInfo()');
@@ -58,7 +57,6 @@ export const getAllMemberInfo = () => {
 
 
 //comment //
-
 export const getTravelCommentDB = () => {
     console.log('[MemberUtils] getTravelCommentDB()');
 
@@ -74,10 +72,7 @@ export const setTravelCommentDB = (comments) => {
 }
 
 
-
-
 /// CURRENT TIME /////
-
 export const getDateTime = () => {
     console.log('[MemberUtils] getDateTime()');
 
@@ -97,10 +92,3 @@ export const getDateTime = () => {
     return `${fullYear}/${month}/${date} ${hours}:${minutes}:${seconds}`;
 
 }
-
-
-//// google map util ///
-
-
-
-// ...생략

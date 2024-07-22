@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
-import  { getAllAres, getAllDBJobj, getAllSpotArea, initTravelDB, findSpot, getComment, dispRank  } from '../main/travelDB.js'
-import {getLoginedSessionID} from '../member/session.js'
-import {getDateTime, getSpotAllCommentDB} from '../comment/comment.js'
-import {deleteMyComment} from './comment.js'
+import { dispRank } from '../main/travelDB.js'
+import { getLoginedSessionID } from '../member/session.js'
+import { getDateTime } from '../comment/comment.js'
+import { deleteMyComment } from './comment.js'
 import ModalModify from './ModalModify.jsx'
 
 
@@ -17,7 +17,6 @@ const CommentList = (props) => {
     const [myModDate, setMyModDate] = useState();
     const [myUid, setMyUid] = useState();
     const [mySpot,setMySpot] = useState();
-    
 
 
     useEffect(() => {
@@ -40,12 +39,14 @@ const CommentList = (props) => {
         
     }
 
+
     const deleteComment = (ev, e) => {
       
         deleteMyComment(props.spot, e.uId)
         props.setFlag(!props.flag);
         alert('코멘트가 삭제되었습니다.')
     }
+
 
     const modifyComment = (ev, e) => {
 
@@ -61,6 +62,7 @@ const CommentList = (props) => {
         setModalOpen(true)
         
     }
+
 
     return (
         <>
@@ -95,30 +97,25 @@ const CommentList = (props) => {
                         </>
                         )
                     }                    
-
-
                         
-{
-    modalOpen 
-    ?
-    < ModalModify flag={props.flag} setFlag={props.setFlag} modalOpen={modalOpen} setModalOpen={setModalOpen} 
+                    {
+                        modalOpen 
+                        ?
+                        < ModalModify flag={props.flag} setFlag={props.setFlag} modalOpen={modalOpen} setModalOpen={setModalOpen} 
 
-    rank={myRank} setRank={setMyRank} 
-    comment={myComment} setComment={setMyComment}
-    regDate={myRegDate} setRegDate={setMyRegDate}
-    modDate={myModDate} setModDate={setMyModDate}
-    uId={myUid} setUid={setMyUid}
-    spot={mySpot}
-     />
-    :
-    null
+                        rank={myRank} setRank={setMyRank} 
+                        comment={myComment} setComment={setMyComment}
+                        regDate={myRegDate} setRegDate={setMyRegDate}
+                        modDate={myModDate} setModDate={setMyModDate}
+                        uId={myUid} setUid={setMyUid}
+                        spot={mySpot}
+                        />
+                        :
+                        null
 
-}
-
+                    }
             </div>
         </div>
-
-
         </>
     );
 }

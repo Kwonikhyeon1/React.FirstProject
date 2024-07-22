@@ -12,9 +12,6 @@ const containerStyle = {
   
 }; // 지도 크기를 설정해준다.
 
-
-
-
 function MyComponent(props : any) {
 
   const center = {
@@ -34,7 +31,6 @@ function MyComponent(props : any) {
     // map.fitBounds(bounds);
     // 전달된 경계 내에 가능한 한 많은 영역을 표시하기 위해 자동으로 줌 레벨을 설정한다.
     // 만약 zoom 설정을 건드려도 지도가 초기 생성될 때 매우 확대되고 있는 상태라면 삭제 처리하는 것이 좋다.
-
     setMap(map);
   }, []);
 

@@ -1,17 +1,17 @@
-
 ///변수///
 export const MEMBER_DB_IN_LOCALSTORAGE = 'travelInfoMemberDB';
 export const COMMENT_DB_IN_LOCALSTORAGE = 'travelCommentDB';
-let loginedSessionID = '';
+
+
 
 //MEMBER //
-
 export const getTravelInfoMemberDB = () => {
     console.log('[MemberUtils] getTravelInfoMemberDB()');
     
     return localStorage.getItem(MEMBER_DB_IN_LOCALSTORAGE);
 
 } 
+
 
 export const setTravelInfoMemberDB = (mems) => {
     console.log('[MemberUtils] setTravelInfoMemberDB()');
@@ -22,7 +22,6 @@ export const setTravelInfoMemberDB = (mems) => {
 
 
 //// 로그인시 확인 기능 ///
-
 export const getMyInfo = (uId) => {
     console.log('[MemberUtils] getMyInfo()');
 
@@ -37,6 +36,7 @@ export const getMyInfo = (uId) => {
 
 }
 
+
 export const setMyInfo = (uId, myInfo) => {
     console.log('[utils] setMyInfo()');
 
@@ -48,10 +48,7 @@ export const setMyInfo = (uId, myInfo) => {
 }
 
 
-
-
 // 코맨트 데이터
-
 export const getTravelCommentDB = () => {
     console.log('[MemberUtils] getTravelCommentDB()');
     
@@ -63,6 +60,7 @@ export const getTravelCommentDB = () => {
 
     return 
 }
+
 
 export const setTravelCommentDB = () => {
     console.log('[MemberUtils] setTravelCommentDB()');
@@ -82,7 +80,7 @@ export const addTravelCommentDB = (spot, newComment) => {
     
     if(db) {
         
-         let allComment = JSON.parse(getTravelCommentDB());        // DB에 있는 장소
+         let allComment = JSON.parse(getTravelCommentDB());
 
          if (allComment[spot]) {
 
@@ -101,7 +99,7 @@ export const addTravelCommentDB = (spot, newComment) => {
 
         } else {
 
-            allComment[spot] = [];                                  // 새로운 장소
+            allComment[spot] = [];
             allComment[spot].push(newComment);
 
         }
@@ -114,8 +112,6 @@ export const addTravelCommentDB = (spot, newComment) => {
         myComment[spot] =[newComment];
         localStorage.setItem(COMMENT_DB_IN_LOCALSTORAGE, JSON.stringify(myComment));
     }
-
-    
 
 }
 
@@ -184,28 +180,13 @@ export const deleteMyComment = (spot, id) => {
 
         }
 
-            if (allSpotComment.length === 0)
-            delete allComment[spot];
+        if (allSpotComment.length === 0) delete allComment[spot];
         
-
-
         localStorage.setItem(COMMENT_DB_IN_LOCALSTORAGE, JSON.stringify(allComment));
     }
 
     return 
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 export const getMyTravelComment = (uId) => {
@@ -220,14 +201,7 @@ export const getMyTravelComment = (uId) => {
 
 
 
-
-
-
-
-
-
 /// CURRENT TIME /////
-
 export const getDateTime = () => {
     console.log('[MemberUtils] getDateTime()');
 

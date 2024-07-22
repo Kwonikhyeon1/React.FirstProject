@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { getMyInfo, setMyInfo, getDateTime ,getAllMemberInfo , setTravelInfoMemberDB  } from "./MemberUtils";
+import { getMyInfo, setMyInfo, getDateTime ,getAllMemberInfo , setTravelInfoMemberDB } from "./MemberUtils";
 import { getLoginedSessionID , setLoginedSessionID } from "./session";
 import Post from "./Post";
 
@@ -15,10 +15,8 @@ const Modify = (props) => {
         zonecode:'',
     });
     const [ableRender, setAbleRender] = useState(false);
-
-    
-
     const navigate = useNavigate();
+    const [popup, setPopup] = useState(false);
 
     useEffect(()=> {
         console.log('[Modify] useEffect()');
@@ -29,23 +27,15 @@ const Modify = (props) => {
             alert('로그인 하세요');
             navigate('/signin');
             return;
-
         }
 
         setAbleRender(true);
-        
         setUId(myInfo.uId);
         setUPw(myInfo.uPw);
         setUMail(myInfo.uMail);
         setEnroll_company({'zonecode' : myInfo.uZoneCode,'address' : myInfo.uAddress});
-        // setEnroll_company({'zonecode' : myInfo.uZoneCode},{'address' : myInfo.uAddress});
-        // setEnroll_company(zonecode = myInfo.uZonecode);
-
-
-        
 
     },[]);
-
 
 
     const uPwChangeHandler =(e) => {
@@ -57,8 +47,8 @@ const Modify = (props) => {
         } else {
             e.target.style.color = '#000'
         }
-            return;
 
+        return;
 
     }
 
@@ -67,7 +57,6 @@ const Modify = (props) => {
         setUMail(e.target.value);
     }
 
-  
     const modifyBtnClickHandler = () => {
         console.log('[Modify] modifyBtnClickHandler()');
 
@@ -88,8 +77,6 @@ const Modify = (props) => {
         setMyInfo(getLoginedSessionID(), myInfo);           // DB 업데이트
 
         alert('회원정보 수정이 완료되었습니다.');
-
-        //setIsSignIned(false); 
 
         navigate('/');
 
@@ -113,13 +100,12 @@ const Modify = (props) => {
         navigate('/')               // 화면 전환
 
 
-     } else {
-        alert('계정 삭제가 취소되었습니다.');  // notification UI
+        } else {
+            alert('계정 삭제가 취소되었습니다.');  // notification UI
 
-    }
+        }
     }
 
-    const [popup, setPopup] = useState(false);
     
     const handleInput = (e) => {
         setEnroll_company({
@@ -131,9 +117,6 @@ const Modify = (props) => {
     const handleComplete = (data) => {
         setPopup(!popup);
     }
-
-  
-
 
     return(
         <>
